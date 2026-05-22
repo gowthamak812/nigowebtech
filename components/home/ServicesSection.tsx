@@ -42,16 +42,15 @@ const IconShield = () => (
   </svg>
 );
 
-// ── Featured services (large cards, top row) ─────────────────────────────────
+// ── Featured services ────────────────────────────────────────────────────────
 const featured = [
   {
     Icon: IconGlobe,
     title: 'Website Development',
     desc: 'High-performance, SEO-optimized websites built with Next.js that load in under a second and convert visitors into customers.',
     tags: ['Next.js', 'React', 'SEO', 'Performance'],
-    color: '#6366f1',
-    gradient: 'linear-gradient(135deg, rgba(99,102,241,0.18) 0%, rgba(99,102,241,0.04) 100%)',
-    border: 'rgba(99,102,241,0.22)',
+    color: '#818cf8',
+    border: 'rgba(129,140,248,0.3)',
     stat: { value: '98/100', label: 'PageSpeed Score' },
   },
   {
@@ -59,9 +58,8 @@ const featured = [
     title: 'Web App Development',
     desc: 'Scalable dashboards, portals and SaaS products engineered for reliability, security and seamless user experience.',
     tags: ['Node.js', 'APIs', 'Databases', 'Auth'],
-    color: '#3b82f6',
-    gradient: 'linear-gradient(135deg, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0.04) 100%)',
-    border: 'rgba(59,130,246,0.22)',
+    color: '#38bdf8',
+    border: 'rgba(56,189,248,0.3)',
     stat: { value: '99.9%', label: 'Uptime SLA' },
   },
   {
@@ -69,79 +67,142 @@ const featured = [
     title: 'Mobile App Development',
     desc: 'Beautiful cross-platform apps built with React Native & Flutter. One codebase — iOS and Android, both flawless.',
     tags: ['React Native', 'Flutter', 'iOS', 'Android'],
-    color: '#10b981',
-    gradient: 'linear-gradient(135deg, rgba(16,185,129,0.18) 0%, rgba(16,185,129,0.04) 100%)',
-    border: 'rgba(16,185,129,0.22)',
+    color: '#34d399',
+    border: 'rgba(52,211,153,0.3)',
     stat: { value: '10K+', label: 'App Downloads' },
   },
 ];
 
-// ── Supporting services (compact cards, bottom row) ───────────────────────────
+// ── Supporting services ──────────────────────────────────────────────────────
 const supporting = [
   {
     Icon: IconAI,
     title: 'AI Integration',
     desc: 'Chatbots, automation & smart workflows built into your product.',
-    color: '#a855f7',
-    border: 'rgba(168,85,247,0.18)',
+    color: '#c084fc',
+    border: 'rgba(192,132,252,0.25)',
   },
   {
     Icon: IconRefresh,
     title: 'Website Redesign',
     desc: 'Modernise your existing site with better UI/UX and speed.',
     color: '#fb923c',
-    border: 'rgba(251,146,60,0.18)',
+    border: 'rgba(251,146,60,0.25)',
   },
   {
     Icon: IconSearch,
     title: 'SEO Optimization',
     desc: 'Rank on page 1 with technical SEO and content strategy.',
-    color: '#f59e0b',
-    border: 'rgba(245,158,11,0.18)',
+    color: '#fbbf24',
+    border: 'rgba(251,191,36,0.25)',
   },
   {
     Icon: IconMegaphone,
     title: 'Digital Marketing',
     desc: 'Targeted campaigns that generate real leads and revenue.',
-    color: '#ec4899',
-    border: 'rgba(236,72,153,0.18)',
+    color: '#f472b6',
+    border: 'rgba(244,114,182,0.25)',
   },
   {
     Icon: IconShield,
     title: 'Maintenance & Support',
     desc: '24/7 monitoring, security updates and reliable assistance.',
-    color: '#38bdf8',
-    border: 'rgba(56,189,248,0.18)',
+    color: '#22d3ee',
+    border: 'rgba(34,211,238,0.25)',
   },
 ];
 
 export default function ServicesSection() {
   return (
-    <section className="relative py-24 overflow-hidden bg-white">
-      {/* Subtle grid */}
+    <section
+      className="relative py-24 overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #040b1f 0%, #091a3f 50%, #040b1f 100%)' }}
+    >
+      {/* Grid pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.045) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
         }}
       />
 
-      {/* Soft glow center */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(251,146,60,0.05) 0%, transparent 60%)', filter: 'blur(40px)' }} />
+      {/* Dot overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.09) 1px, transparent 1px)',
+          backgroundSize: '30px 30px',
+        }}
+      />
 
+      {/* Royal blue glow — top-left */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: '-20%', left: '-10%',
+          width: '55%', height: '65%',
+          background: 'radial-gradient(circle, rgba(37,99,235,0.38) 0%, transparent 65%)',
+          filter: 'blur(90px)',
+        }}
+      />
+
+      {/* Electric blue glow — top-right */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: '-15%', right: '-12%',
+          width: '50%', height: '60%',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.3) 0%, transparent 65%)',
+          filter: 'blur(100px)',
+        }}
+      />
+
+      {/* Sky blue glow — bottom-center */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          bottom: '-15%', left: '25%',
+          width: '50%', height: '50%',
+          background: 'radial-gradient(circle, rgba(56,189,248,0.22) 0%, transparent 65%)',
+          filter: 'blur(80px)',
+        }}
+      />
 
       <div className="container relative z-10">
 
         {/* Section header */}
         <div className="text-center mb-14">
-          <span className="badge mb-4">Our Core Expertise</span>
-          <h2 className="text-brand-navy mb-4">
-            Premium <span className="gradient-text-secondary">Digital Services</span>
+          <span
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
+            style={{
+              background: 'rgba(59,130,246,0.12)',
+              color: '#60a5fa',
+              border: '1px solid rgba(59,130,246,0.28)',
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+            Our Core Expertise
+          </span>
+          <h2 className="mb-4" style={{ color: '#ffffff' }}>
+            Premium{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Digital Services
+            </span>
           </h2>
-          <div className="section-divider section-divider-center" />
-          <p className="text-gray-500 max-w-2xl mx-auto font-medium">
+          <div
+            className="section-divider section-divider-center"
+            style={{ background: 'linear-gradient(90deg, #3b82f6, #38bdf8)' }}
+          />
+          <p className="max-w-2xl mx-auto font-medium" style={{ color: 'rgba(203,213,225,0.75)' }}>
             End-to-end digital solutions that help your business stand out, scale up, and stay ahead.
           </p>
         </div>
@@ -152,33 +213,51 @@ export default function ServicesSection() {
             <div
               key={i}
               className="group relative rounded-3xl p-7 transition-all duration-400 hover:-translate-y-2 cursor-default overflow-hidden"
-              style={{ background: s.gradient, border: `1px solid ${s.border}` }}
+              style={{
+                background: 'rgba(255,255,255,0.05)',
+                border: `1px solid ${s.border}`,
+                backdropFilter: 'blur(12px)',
+              }}
             >
-              {/* Hover glow overlay */}
+              {/* Hover glow */}
               <div
                 className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-                style={{ boxShadow: `inset 0 0 0 1px ${s.color}50`, background: `radial-gradient(ellipse at top left, ${s.color}12, transparent 55%)` }}
+                style={{
+                  background: `radial-gradient(ellipse at top left, ${s.color}18, transparent 60%)`,
+                  boxShadow: `inset 0 0 0 1px ${s.color}40`,
+                }}
+              />
+
+              {/* Top shimmer on hover */}
+              <div
+                className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-t-3xl"
+                style={{ background: `linear-gradient(to right, transparent, ${s.color}90, transparent)` }}
               />
 
               {/* Stat badge top-right */}
-              <div
-                className="absolute top-5 right-5 text-right"
-                style={{ color: s.color }}
-              >
-                <div className="text-lg font-black leading-none" style={{ fontFamily: 'Outfit, sans-serif' }}>{s.stat.value}</div>
-                <div className="text-[9px] font-bold uppercase tracking-wider" style={{ color: `${s.color}80` }}>{s.stat.label}</div>
+              <div className="absolute top-5 right-5 text-right" style={{ color: s.color }}>
+                <div className="text-lg font-black leading-none" style={{ fontFamily: 'Outfit, sans-serif' }}>
+                  {s.stat.value}
+                </div>
+                <div className="text-[9px] font-bold uppercase tracking-wider" style={{ color: `${s.color}80` }}>
+                  {s.stat.label}
+                </div>
               </div>
 
               {/* Icon */}
               <div
                 className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 relative z-10"
-                style={{ background: `${s.color}22`, border: `1px solid ${s.color}35`, color: s.color }}
+                style={{ background: `${s.color}18`, border: `1px solid ${s.color}35`, color: s.color }}
               >
                 <s.Icon />
               </div>
 
-              <h3 className="text-brand-navy font-bold text-lg mb-3 leading-snug relative z-10">{s.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6 relative z-10">{s.desc}</p>
+              <h3 className="font-bold text-lg mb-3 leading-snug relative z-10" style={{ color: '#f1f5f9' }}>
+                {s.title}
+              </h3>
+              <p className="text-sm leading-relaxed mb-6 relative z-10" style={{ color: 'rgba(148,163,184,0.9)' }}>
+                {s.desc}
+              </p>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-1.5 mb-6 relative z-10">
@@ -186,7 +265,7 @@ export default function ServicesSection() {
                   <span
                     key={j}
                     className="text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wide"
-                    style={{ background: `${s.color}18`, color: s.color }}
+                    style={{ background: `${s.color}18`, color: s.color, border: `1px solid ${s.color}28` }}
                   >
                     {t}
                   </span>
@@ -207,33 +286,43 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        {/* ── Supporting services row (5 compact cards) ── */}
+        {/* ── Supporting services row ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {supporting.map((s, i) => (
             <div
               key={i}
               className="group relative rounded-2xl p-5 transition-all duration-400 hover:-translate-y-1.5 cursor-default overflow-hidden"
               style={{
-                background: '#ffffff',
+                background: 'rgba(255,255,255,0.04)',
                 border: `1px solid ${s.border}`,
-                boxShadow: '0 2px 16px rgba(0,0,0,0.04)',
+                backdropFilter: 'blur(10px)',
               }}
             >
               {/* Hover fill */}
               <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse at top left, ${s.color}10, transparent 65%)` }}
+                style={{ background: `radial-gradient(ellipse at top left, ${s.color}15, transparent 65%)` }}
+              />
+
+              {/* Top shimmer on hover */}
+              <div
+                className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-t-2xl"
+                style={{ background: `linear-gradient(to right, transparent, ${s.color}80, transparent)` }}
               />
 
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 relative z-10"
-                style={{ background: `${s.color}18`, color: s.color }}
+                style={{ background: `${s.color}18`, color: s.color, border: `1px solid ${s.color}28` }}
               >
                 <s.Icon />
               </div>
 
-              <h3 className="text-brand-navy text-sm font-bold mb-2 leading-snug relative z-10">{s.title}</h3>
-              <p className="text-gray-500 text-xs leading-relaxed relative z-10">{s.desc}</p>
+              <h3 className="text-sm font-bold mb-2 leading-snug relative z-10" style={{ color: '#f1f5f9' }}>
+                {s.title}
+              </h3>
+              <p className="text-xs leading-relaxed relative z-10" style={{ color: 'rgba(148,163,184,0.8)' }}>
+                {s.desc}
+              </p>
 
               {/* Bottom accent */}
               <div
@@ -249,7 +338,10 @@ export default function ServicesSection() {
           <Link
             href="/services"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl font-bold text-white text-sm transition-all hover:scale-105 hover:-translate-y-0.5"
-            style={{ background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)', boxShadow: '0 8px 32px rgba(99,102,241,0.35)' }}
+            style={{
+              background: 'linear-gradient(135deg, #2563eb 0%, #38bdf8 100%)',
+              boxShadow: '0 8px 32px rgba(37,99,235,0.45)',
+            }}
           >
             View All Services
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -259,7 +351,6 @@ export default function ServicesSection() {
         </div>
 
       </div>
-
     </section>
   );
 }

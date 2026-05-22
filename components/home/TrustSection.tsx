@@ -249,7 +249,7 @@ export default function TrustSection() {
   return (
     <section
       className="relative py-20 overflow-hidden"
-      style={{ background: 'linear-gradient(to right, rgb(216, 231, 223) 0%, rgb(233, 243, 249) 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #f8f5ff 50%, #eef5ff 100%)' }}
     >
       {/* Subtle dot grid */}
       <div className="absolute inset-0 pointer-events-none" style={{
@@ -259,7 +259,7 @@ export default function TrustSection() {
 
       {/* Soft top glow */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 65% 45% at 50% 0%, rgba(20,184,166,0.1) 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(ellipse 65% 45% at 50% 0%, rgba(99,102,241,0.1) 0%, transparent 65%)' }}
       />
 
       <div className="container relative z-10">
@@ -267,7 +267,7 @@ export default function TrustSection() {
         {/* Section header */}
         <div className="text-center mb-12">
           <span className="badge mb-4"
-            style={{ background: 'rgba(20,184,166,0.08)', color: '#0f766e', borderColor: 'rgba(20,184,166,0.2)' }}>
+            style={{ background: 'rgba(99,102,241,0.08)', color: '#4f46e5', borderColor: 'rgba(99,102,241,0.2)' }}>
             Trusted By Businesses
           </span>
           <h2 className="text-brand-navy mb-4">

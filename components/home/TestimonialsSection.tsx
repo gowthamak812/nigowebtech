@@ -55,15 +55,27 @@ export default function TestimonialsSection() {
   return (
     <section
       className="relative py-24 overflow-hidden"
-      style={{ background: 'linear-gradient(to right, rgb(235, 245, 255) 0%, rgb(224, 240, 255) 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #fff9f5 0%, #fef3f8 50%, #fdf5ff 100%)' }}
     >
       {/* Soft center glow */}
+      {/* Subtle dot grid */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.04) 1px, transparent 1px)',
+        backgroundSize: '32px 32px',
+      }} />
+
       <div
-        className="absolute top-1/2 left-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
+        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse, rgba(236,72,153,0.05) 0%, transparent 60%)',
-          transform: 'translate(-50%,-50%)',
-          filter: 'blur(40px)',
+          background: 'radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 60%)',
+          transform: 'translate(30%, -30%)',
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(168,85,247,0.06) 0%, transparent 60%)',
+          transform: 'translate(-30%, 30%)',
         }}
       />
 
