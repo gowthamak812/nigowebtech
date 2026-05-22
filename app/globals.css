@@ -69,21 +69,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
-}
-
-h2 {
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-  letter-spacing: -0.03em;
   margin-bottom: 1.25rem;
 }
 
-h3 {
-  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
-  font-weight: 700;
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  letter-spacing: -0.03em;
   margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+  margin-bottom: 0.875rem;
 }
 
 p { margin-bottom: 1rem; }
@@ -579,6 +579,23 @@ p { margin-bottom: 1rem; }
   from { transform: rotateY(0deg); }
   to   { transform: rotateY(360deg); }
 }
+@keyframes gradient-drift {
+  0%, 100% { background-position: 0% 50%; }
+  33%        { background-position: 100% 0%; }
+  66%        { background-position: 50% 100%; }
+}
+.animate-gradient-bg {
+  background-size: 400% 400% !important;
+  animation: gradient-drift 22s ease infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33%        { transform: translateY(-20px) translateX(10px); }
+  66%        { transform: translateY(10px) translateX(-8px); }
+}
+.animate-float-slow { animation: float-slow 18s ease-in-out infinite; }
+
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }

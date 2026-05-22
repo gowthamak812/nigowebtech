@@ -15,6 +15,9 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const isHome = pathname === '/';
+    const isDark = false; // Hero is now light — always use standard light header
+
     const navItems = [
         { name: 'Home',      path: '/' },
         { name: 'Services',  path: '/services' },
@@ -29,11 +32,17 @@ export default function Header() {
         <header
             style={{
                 background: isScrolled
-                    ? 'rgba(255, 255, 255, 0.82)'
-                    : 'rgba(255, 255, 255, 0.0)',
-                backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-                WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-                borderBottom: isScrolled ? '1px solid rgba(15, 23, 42, 0.07)' : 'none',
+                    ? 'rgba(255, 255, 255, 0.92)'
+                    : isDark
+                        ? 'rgba(6, 11, 24, 0.55)'
+                        : 'rgba(255, 255, 255, 0.92)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                borderBottom: isScrolled
+                    ? '1px solid rgba(15, 23, 42, 0.07)'
+                    : isDark
+                        ? '1px solid rgba(255,255,255,0.07)'
+                        : '1px solid rgba(15, 23, 42, 0.07)',
                 boxShadow: isScrolled ? '0 4px 32px rgba(0,0,0,0.06)' : 'none',
             }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-5'}`}
@@ -58,8 +67,8 @@ export default function Header() {
                                     href={item.path}
                                     className={`text-sm font-semibold tracking-tight transition-all duration-200 relative px-3 py-2 rounded-xl group ${
                                         pathname === item.path
-                                            ? 'text-accent-indigo bg-indigo-50'
-                                            : 'text-gray-600 hover:text-brand-navy hover:bg-gray-50'
+                                            ? isDark ? 'text-white bg-white/10' : 'text-accent-indigo bg-indigo-50'
+                                            : isDark ? 'text-white/75 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-brand-navy hover:bg-gray-50'
                                     }`}
                                 >
                                     {item.name}
@@ -75,7 +84,11 @@ export default function Header() {
                     <div className="hidden lg:flex items-center gap-3">
                         <Link
                             href="/contact"
-                            className="inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-brand-navy border-2 border-brand-navy/15 hover:border-brand-navy hover:bg-brand-navy hover:text-white rounded-xl transition-all duration-200"
+                            className={`inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-200 ${
+                                isDark
+                                    ? 'text-white/80 border-2 border-white/20 hover:border-white/60 hover:text-white hover:bg-white/10'
+                                    : 'text-brand-navy border-2 border-brand-navy/15 hover:border-brand-navy hover:bg-brand-navy hover:text-white'
+                            }`}
                             id="nav-get-quote"
                         >
                             Get Quote
@@ -96,7 +109,7 @@ export default function Header() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="lg:hidden p-2.5 rounded-xl text-brand-navy hover:bg-gray-100 transition-colors"
+                        className={`lg:hidden p-2.5 rounded-xl transition-colors ${isDark ? 'text-white hover:bg-white/10' : 'text-brand-navy hover:bg-gray-100'}`}
                         aria-label="Toggle menu"
                         id="mobile-menu-toggle"
                     >

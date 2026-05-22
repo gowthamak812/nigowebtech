@@ -1,10 +1,3 @@
-const stats = [
-  { value: '100+', label: 'Projects Delivered', icon: '🚀', badge: '& counting',  cardCls: 'card-indigo', iconCls: 'iw-indigo', valCls: 'sv-indigo', badgeCls: 'sb-indigo' },
-  { value: '99%',  label: 'Client Satisfaction', icon: '⭐', badge: '5-star avg',  cardCls: 'card-orange', iconCls: 'iw-orange', valCls: 'sv-orange', badgeCls: 'sb-orange' },
-  { value: '5+',   label: 'Years Experience',   icon: '🏆', badge: 'since 2019',  cardCls: 'card-green',  iconCls: 'iw-green',  valCls: 'sv-green',  badgeCls: 'sb-green'  },
-  { value: '24/7', label: 'Support Available',  icon: '🛡️', badge: 'always on',   cardCls: 'card-purple', iconCls: 'iw-purple', valCls: 'sv-purple', badgeCls: 'sb-purple' },
-];
-
 // ── SVG Tech Logos ────────────────────────────────────────────────────────────
 const LogoReact = () => (
   <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
@@ -39,7 +32,7 @@ const LogoNodejs = () => (
 
 const LogoTailwind = () => (
   <svg viewBox="0 0 24 24" width="22" height="22">
-    <path d="M12 6C9.6 6 8.1 7.2 7.5 9.6c.9-1.2 1.95-1.65 3.15-1.35.685.171 1.174.668 1.715 1.219C13.248 10.438 14.28 11.5 16.5 11.5c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.668-1.715-1.219C15.252 7.062 14.22 6 12 6zM7.5 11.5C5.1 11.5 3.6 12.7 3 15.1c.9 -1.2 1.95-1.65 3.15-1.35.685.171 1.174.668 1.715 1.219C8.748 15.938 9.78 17 12 17c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.668-1.715-1.219C10.752 12.562 9.72 11.5 7.5 11.5z" fill="#38BDF8" />
+    <path d="M12 6C9.6 6 8.1 7.2 7.5 9.6c.9-1.2 1.95-1.65 3.15-1.35.685.171 1.174.668 1.715 1.219C13.248 10.438 14.28 11.5 16.5 11.5c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.668-1.715-1.219C15.252 7.062 14.22 6 12 6zM7.5 11.5C5.1 11.5 3.6 12.7 3 15.1c.9-1.2 1.95-1.65 3.15-1.35.685.171 1.174.668 1.715 1.219C8.748 15.938 9.78 17 12 17c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.668-1.715-1.219C10.752 12.562 9.72 11.5 7.5 11.5z" fill="#38BDF8" />
   </svg>
 );
 
@@ -157,7 +150,6 @@ const LogoGit = () => (
   </svg>
 );
 
-// ── Tech Data ─────────────────────────────────────────────────────────────────
 const techsRow1 = [
   { name: 'React',       color: '#61DAFB', Logo: LogoReact      },
   { name: 'Next.js',     color: '#818cf8', Logo: LogoNextjs     },
@@ -180,157 +172,176 @@ const techsRow2 = [
   { name: 'Git',        color: '#F05032', Logo: LogoGit        },
 ];
 
-// ── Pill Component ────────────────────────────────────────────────────────────
-function TechPill({ tech }) {
+function TechPill({ tech }: { tech: typeof techsRow1[number] }) {
   const { name, color, Logo } = tech;
   return (
     <div
       className="inline-flex items-center gap-2 px-4 py-2 rounded-full cursor-default group transition-all duration-300 hover:-translate-y-1 flex-shrink-0"
       style={{
-        background: `${color}15`,
-        border: `1.5px solid ${color}44`,
-        boxShadow: `0 4px 14px ${color}18, inset 0 1px 0 rgba(255,255,255,0.6)`,
+        background: `${color}14`,
+        border: `1.5px solid ${color}38`,
+        boxShadow: `0 2px 12px ${color}14`,
       }}
     >
       <div className="w-[22px] h-[22px] flex items-center justify-center flex-shrink-0">
         <Logo />
       </div>
-      <span
-        className="font-bold text-[12px] tracking-wide whitespace-nowrap"
-        style={{ color }}
-      >
+      <span className="font-bold text-[12px] tracking-wide whitespace-nowrap" style={{ color }}>
         {name}
       </span>
     </div>
   );
 }
 
-// ── Main Component ────────────────────────────────────────────────────────────
+const stats = [
+  {
+    value: '100+',
+    label: 'Projects Delivered',
+    sub: '& counting',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+    color: '#f97316',
+  },
+  {
+    value: '99%',
+    label: 'Client Satisfaction',
+    sub: '5-star average',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+      </svg>
+    ),
+    color: '#ec4899',
+  },
+  {
+    value: '5+',
+    label: 'Years Experience',
+    sub: 'since 2019',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+      </svg>
+    ),
+    color: '#10b981',
+  },
+  {
+    value: '24/7',
+    label: 'Support Available',
+    sub: 'always on',
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    ),
+    color: '#3b82f6',
+  },
+];
+
+const maskStyle = {
+  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+  maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+};
+
 export default function TrustSection() {
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-tr from-rose-50 via-white to-cyan-50">
+    <section
+      className="relative py-20 overflow-hidden"
+      style={{ background: 'linear-gradient(to right, rgb(216, 231, 223) 0%, rgb(233, 243, 249) 100%)' }}
+    >
+      {/* Subtle dot grid */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.045) 1px, transparent 1px)',
+        backgroundSize: '32px 32px',
+      }} />
 
-      {/* Background mesh */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-amber-100/60 via-transparent to-purple-100/60 pointer-events-none" />
-      <div className="glow-orb w-[700px] h-[700px] bg-pink-400/30 top-[-100px] left-[-200px] animate-blob" />
-      <div className="glow-orb w-[600px] h-[600px] bg-cyan-400/30 bottom-[-100px] right-[-100px] animate-blob" style={{ animationDelay: '2s' }} />
-      <div className="glow-orb w-[500px] h-[500px] bg-amber-400/30 top-[20%] left-[50%] animate-blob" style={{ animationDelay: '4s' }} />
+      {/* Soft top glow */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 65% 45% at 50% 0%, rgba(20,184,166,0.1) 0%, transparent 65%)' }}
+      />
 
       <div className="container relative z-10">
 
-        {/* ── Top Heading ── */}
-        <div className="text-center mb-16 animate-slide-in-up">
-          <span className="badge mb-4 border-rose-200 text-rose-600 bg-rose-50/80 backdrop-blur-sm shadow-sm">
+        {/* Section header */}
+        <div className="text-center mb-12">
+          <span className="badge mb-4"
+            style={{ background: 'rgba(20,184,166,0.08)', color: '#0f766e', borderColor: 'rgba(20,184,166,0.2)' }}>
             Trusted By Businesses
           </span>
           <h2 className="text-brand-navy mb-4">
-            Helping <span className="gradient-text-multi">Startups &amp; Businesses</span> Grow
+            Helping <span className="gradient-text-secondary">Startups &amp; Businesses</span> Grow
           </h2>
-          <div className="section-divider section-divider-center bg-gradient-to-r from-rose-400 via-purple-400 to-cyan-400" />
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg font-medium">
-            Empowering modern businesses with scalable, high-performance digital solutions that drive real growth and measurable results.
+          <div className="section-divider section-divider-center" />
+          <p className="text-gray-500 max-w-xl mx-auto font-medium">
+            Empowering modern businesses with scalable, high-performance digital solutions that drive real growth.
           </p>
         </div>
 
-        {/* ── Content + Stats Row ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-20 items-center">
+        {/* Stats — Services-style featured cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
+          {stats.map((s, i) => (
+            <div
+              key={i}
+              className="group relative rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-default"
+              style={{
+                background: '#ffffff',
+                border: `1px solid ${s.color}28`,
+                boxShadow: '0 2px 16px rgba(0,0,0,0.05)',
+              }}
+            >
+              {/* Colored top bar */}
+              <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${s.color}, ${s.color}50)` }} />
 
-          {/* Left: Content & CTAs */}
-          <div className="text-left animate-slide-in-up pr-0 lg:pr-4">
-            <h3 className="text-brand-navy text-3xl font-bold mb-4">Why Partner With Us?</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              We go beyond just delivering code. Our team focuses on building{' '}
-              <strong className="text-brand-navy">future-proof digital ecosystems</strong>{' '}
-              tailored to your unique business needs. We blend stunning design with robust engineering.
-            </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start gap-3">
-                <div className="mt-0.5 w-5 h-5 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-[10px] shadow-sm">✓</div>
-                <span className="text-gray-700 font-medium text-sm lg:text-base">Proven track record across multiple industries</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-0.5 w-5 h-5 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-[10px] shadow-sm">✓</div>
-                <span className="text-gray-700 font-medium text-sm lg:text-base">Dedicated agile teams for rapid deployment</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-0.5 w-5 h-5 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-[10px] shadow-sm">✓</div>
-                <span className="text-gray-700 font-medium text-sm lg:text-base">Post-launch support and scalable architecture</span>
-              </li>
-            </ul>
-            <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="btn btn-primary hover:scale-105 px-6 py-2.5">
-                Start Your Project <span className="ml-1 text-lg">🚀</span>
-              </a>
-              <a
-                href="#portfolio"
-                className="btn btn-outline bg-white/60 backdrop-blur-md border-gray-200 hover:border-indigo-400 hover:bg-white hover:text-indigo-600 hover:shadow-lg hover:shadow-indigo-500/10 px-6 py-2.5"
-              >
-                View Portfolio
-              </a>
-            </div>
-          </div>
+              {/* Hover glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{ background: `radial-gradient(ellipse at top left, ${s.color}12, transparent 60%)` }}
+              />
 
-          {/* Right: Bold Stats Grid */}
-          <div className="grid grid-cols-2 gap-4 lg:gap-6">
-            {stats.map((s, i) => (
-              <div
-                key={i}
-                className={`stat-card ${s.cardCls} rounded-[2rem] p-6 lg:p-8 text-center flex flex-col items-center justify-center gap-2 group transition-all duration-500 hover:-translate-y-1`}
-              >
-                {/* Icon bubble */}
-                <div
-                  className={`icon-bubble ${s.iconCls} w-14 h-14 rounded-[1.1rem] flex items-center justify-center text-2xl mb-1 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105`}
-                >
+              <div className="p-6 lg:p-7 flex flex-col items-center gap-3 text-center relative z-10">
+
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
+                  style={{ background: `${s.color}15`, color: s.color }}>
                   {s.icon}
                 </div>
 
-                {/* Value */}
-                <div className={`text-4xl font-black tracking-tight leading-none ${s.valCls}`}>
+                {/* Large value */}
+                <div className="text-4xl lg:text-5xl font-black tracking-tight leading-none"
+                  style={{ color: s.color, fontFamily: 'Outfit, sans-serif' }}>
                   {s.value}
                 </div>
 
                 {/* Label */}
-                <div className="text-gray-400 font-bold tracking-[0.1em] uppercase text-[9px] lg:text-[10px]">
-                  {s.label}
-                </div>
+                <div className="text-brand-navy font-bold text-sm">{s.label}</div>
 
-                {/* Micro badge */}
-                <div className={`stat-badge ${s.badgeCls} text-[9px] font-bold px-2.5 py-1 rounded-full tracking-wide uppercase`}>
-                  {s.badge}
+                {/* Sub badge */}
+                <div className="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                  style={{ background: `${s.color}14`, color: s.color }}>
+                  {s.sub}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
-        {/* ── Technologies ── */}
-        <div className="relative mt-4 pt-12">
-
-          {/* Ambient blobs */}
-          <div className="absolute top-0 left-1/4 w-72 h-40 rounded-full bg-pink-300/15 blur-3xl pointer-events-none" />
-          <div className="absolute top-0 right-1/4 w-72 h-40 rounded-full bg-indigo-300/15 blur-3xl pointer-events-none" />
-
+        {/* Technologies — wrapped in a clean card */}
+        <div
+          className="rounded-3xl px-6 py-10 relative overflow-hidden"
+          style={{ background: 'white', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 24px rgba(0,0,0,0.04)' }}
+        >
           {/* Label */}
-          <div className="text-center mb-10">
-            <p className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.35em] text-brand-navy/40">
-              <span className="w-12 h-px bg-gradient-to-r from-transparent to-brand-navy/15 inline-block" />
+          <div className="text-center mb-8">
+            <p className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.35em]"
+              style={{ color: 'rgba(15,23,42,0.28)' }}>
+              <span className="w-16 h-px bg-gradient-to-r from-transparent to-gray-200 inline-block" />
               Our Technologies
-              <span className="w-12 h-px bg-gradient-to-l from-transparent to-brand-navy/15 inline-block" />
+              <span className="w-16 h-px bg-gradient-to-l from-transparent to-gray-200 inline-block" />
             </p>
           </div>
 
-          {/* ── Row 1 — scrolls left ── */}
-          {/*
-            FIX: Use both -webkit-mask-image AND mask-image so Chrome/Safari/Edge
-            all apply the fade. The plain mask-image alone only works in Firefox.
-          */}
-          <div
-            className="relative overflow-hidden mb-4"
-            style={{
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-              maskImage:       'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-            }}
-          >
+          <div className="relative overflow-hidden mb-3" style={maskStyle}>
             <div className="animate-marquee flex gap-3 whitespace-nowrap">
               {[...techsRow1, ...techsRow1, ...techsRow1].map((tech, i) => (
                 <TechPill key={i} tech={tech} />
@@ -338,53 +349,16 @@ export default function TrustSection() {
             </div>
           </div>
 
-          {/* ── Row 2 — scrolls right ── */}
-          <div
-            className="relative overflow-hidden"
-            style={{
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-              maskImage:       'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-            }}
-          >
+          <div className="relative overflow-hidden" style={maskStyle}>
             <div className="animate-marquee-reverse flex gap-3 whitespace-nowrap">
               {[...techsRow2, ...techsRow2, ...techsRow2].map((tech, i) => (
                 <TechPill key={i} tech={tech} />
               ))}
             </div>
           </div>
-
         </div>
+
       </div>
-
-      {/*
-        ── Stat Card & Icon Bubble Styles ──────────────────────────────────────
-        Add these to your global CSS or tailwind.config safelist.
-        They use light tinted backgrounds that match each accent color.
-      */}
-      <style>{`
-        .stat-card { border: 1.5px solid; }
-
-        .card-indigo { background: linear-gradient(145deg, #eef0ff, #dde1ff); border-color: #c5caff; }
-        .card-orange { background: linear-gradient(145deg, #fff4e8, #ffe8c8); border-color: #ffd4a0; }
-        .card-green  { background: linear-gradient(145deg, #edfff4, #d4f8e4); border-color: #a6edc4; }
-        .card-purple { background: linear-gradient(145deg, #f5eeff, #e8d8ff); border-color: #d0aaff; }
-
-        .iw-indigo { background: linear-gradient(135deg, #6272ff, #8b9bff); box-shadow: 0 8px 24px #6272ff44; }
-        .iw-orange { background: linear-gradient(135deg, #ff8c38, #ffad6a); box-shadow: 0 8px 24px #ff8c3844; }
-        .iw-green  { background: linear-gradient(135deg, #22c566, #5de89a); box-shadow: 0 8px 24px #22c56644; }
-        .iw-purple { background: linear-gradient(135deg, #9b5fff, #be8fff); box-shadow: 0 8px 24px #9b5fff44; }
-
-        .sv-indigo { color: #3d52d5; }
-        .sv-orange { color: #c96800; }
-        .sv-green  { color: #167a42; }
-        .sv-purple { color: #6b28c2; }
-
-        .sb-indigo { background: #dde1ff; color: #3d52d5; }
-        .sb-orange { background: #ffe8c8; color: #c96800; }
-        .sb-green  { background: #d4f8e4; color: #167a42; }
-        .sb-purple { background: #e8d8ff; color: #6b28c2; }
-      `}</style>
-
     </section>
   );
 }

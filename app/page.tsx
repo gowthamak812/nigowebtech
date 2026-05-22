@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import HeroSection         from '@/components/home/HeroSection';
 import TrustSection        from '@/components/home/TrustSection';
 import ServicesSection     from '@/components/home/ServicesSection';
-import TechStackSection    from '@/components/home/TechStackSection';
-import AISection           from '@/components/home/AISection';
 import WhyUsSection        from '@/components/home/WhyUsSection';
+import AISection           from '@/components/home/AISection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import CTASection          from '@/components/home/CTASection';
 
@@ -20,7 +19,6 @@ export default function Home() {
       <TrustSection />
       <ServicesSection />
       <WhyUsSection />
-      <TechStackSection />
       <AISection />
       <TestimonialsSection />
       <CTASection />
