@@ -592,8 +592,14 @@ p { margin-bottom: 1rem; }
 .animate-pulse        { animation: pulse 3s ease-in-out infinite; }
 .animate-blob         { animation: blob-float 14s infinite alternate ease-in-out; }
 .animate-glow-pulse   { animation: glow-pulse 3s ease-in-out infinite; }
-.animate-marquee      { animation: marquee 30s linear infinite; }
-.animate-marquee:hover{ animation-play-state: paused; }
+.animate-marquee         { animation: marquee 30s linear infinite; }
+.animate-marquee:hover   { animation-play-state: paused; }
+@keyframes marquee-reverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.animate-marquee-reverse      { animation: marquee-reverse 35s linear infinite; }
+.animate-marquee-reverse:hover{ animation-play-state: paused; }
 
 /* ─── Misc ─── */
 .bg-cream { background-color: var(--color-cream); }
