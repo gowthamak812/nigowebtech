@@ -254,7 +254,7 @@ export default function PricingPage() {
           <p className="text-gray-500 text-xl font-medium max-w-2xl mx-auto leading-relaxed mb-10 animate-slide-in-up" style={{ animationDelay: '0.1s' }}>
             No hidden fees. No long-term contracts. Choose a plan that fits your goals — or get a custom quote.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500 font-semibold animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
+          <div className="flex flex-wrap justify-start gap-4 text-sm text-gray-500 font-semibold animate-slide-in-up" style={{ animationDelay: '0.2s' }}>
             {['✓ Free Consultation', '✓ Fast Delivery', '✓ 100% Satisfaction', '✓ Flexible Payment'].map((i, k) => (
               <span key={k} className="px-4 py-2 rounded-xl bg-white border border-gray-100 shadow-sm hover:scale-105 transition-all">{i}</span>
             ))}

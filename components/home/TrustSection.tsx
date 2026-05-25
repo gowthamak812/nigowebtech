@@ -249,17 +249,27 @@ export default function TrustSection() {
   return (
     <section
       className="relative py-20 overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #f0f4ff 0%, #f8f5ff 50%, #eef5ff 100%)' }}
+      style={{ background: '#ffffff' }}
     >
       {/* Subtle dot grid */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.045) 1px, transparent 1px)',
+        backgroundImage: 'radial-gradient(circle, rgba(99,102,241,0.07) 1px, transparent 1px)',
         backgroundSize: '32px 32px',
       }} />
 
-      {/* Soft top glow */}
+      {/* Soft indigo glow — top center */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 65% 45% at 50% 0%, rgba(99,102,241,0.1) 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(99,102,241,0.08) 0%, transparent 65%)' }}
+      />
+
+      {/* Warm orange glow — bottom right for depth */}
+      <div className="absolute pointer-events-none"
+        style={{
+          bottom: '-10%', right: '-5%',
+          width: '40%', height: '60%',
+          background: 'radial-gradient(circle, rgba(251,146,60,0.05) 0%, transparent 65%)',
+          filter: 'blur(80px)',
+        }}
       />
 
       <div className="container relative z-10">
@@ -299,25 +309,25 @@ export default function TrustSection() {
                 style={{ background: `radial-gradient(ellipse at top left, ${s.color}12, transparent 60%)` }}
               />
 
-              <div className="p-6 lg:p-7 flex flex-col items-center gap-3 text-center relative z-10">
+              <div className="p-4 sm:p-5 lg:p-7 flex flex-col items-center gap-2 sm:gap-3 text-center relative z-10">
 
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
+                <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
                   style={{ background: `${s.color}15`, color: s.color }}>
                   {s.icon}
                 </div>
 
                 {/* Large value */}
-                <div className="text-4xl lg:text-5xl font-black tracking-tight leading-none"
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-none"
                   style={{ color: s.color, fontFamily: 'Outfit, sans-serif' }}>
                   {s.value}
                 </div>
 
                 {/* Label */}
-                <div className="text-brand-navy font-bold text-sm">{s.label}</div>
+                <div className="text-brand-navy font-bold text-xs sm:text-sm leading-tight">{s.label}</div>
 
                 {/* Sub badge */}
-                <div className="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                <div className="text-[9px] sm:text-[10px] font-bold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full uppercase tracking-wider"
                   style={{ background: `${s.color}14`, color: s.color }}>
                   {s.sub}
                 </div>

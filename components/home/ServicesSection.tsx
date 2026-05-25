@@ -118,6 +118,11 @@ export default function ServicesSection() {
       className="relative py-24 overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #040b1f 0%, #091a3f 50%, #040b1f 100%)' }}
     >
+      {/* Light-to-dark transition from TrustSection above */}
+      <div className="absolute top-0 left-0 right-0 h-20 pointer-events-none z-10"
+        style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.07) 0%, transparent 100%)' }}
+      />
+
       {/* Grid pattern */}
       <div
         className="absolute inset-0 pointer-events-none"

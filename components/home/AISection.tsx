@@ -57,6 +57,11 @@ export default function AISection() {
       className="relative py-24 overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #07091a 0%, #0d1230 50%, #07091a 100%)' }}
     >
+      {/* Light-to-dark transition from WhyUsSection above */}
+      <div className="absolute top-0 left-0 right-0 h-20 pointer-events-none z-10"
+        style={{ background: 'linear-gradient(180deg, rgba(247,245,255,0.08) 0%, transparent 100%)' }}
+      />
+
       {/* Grid pattern */}
       <div className="absolute inset-0 grid-pattern-dark opacity-25 pointer-events-none" />
 

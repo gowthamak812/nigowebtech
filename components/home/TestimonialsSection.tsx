@@ -55,28 +55,44 @@ export default function TestimonialsSection() {
   return (
     <section
       className="relative py-24 overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #fff9f5 0%, #fef3f8 50%, #fdf5ff 100%)' }}
+      style={{ background: 'linear-gradient(160deg, #fff5f9 0%, #ffffff 45%, #f8f5ff 100%)' }}
     >
-      {/* Soft center glow */}
+      {/* Subtle dark-to-light transition from AI section above */}
+      <div className="absolute top-0 left-0 right-0 h-28 pointer-events-none z-10"
+        style={{ background: 'linear-gradient(180deg, rgba(7,9,26,0.1) 0%, transparent 100%)' }}
+      />
+
       {/* Subtle dot grid */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.04) 1px, transparent 1px)',
+        backgroundImage: 'radial-gradient(circle, rgba(236,72,153,0.06) 1px, transparent 1px)',
         backgroundSize: '32px 32px',
       }} />
 
+      {/* Rose glow — top-right */}
       <div
-        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute top-0 right-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 60%)',
-          transform: 'translate(30%, -30%)',
+          width: '50%', height: '55%',
+          background: 'radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 60%)',
+          transform: 'translate(25%, -25%)',
+          filter: 'blur(60px)',
         }}
       />
+
+      {/* Purple glow — bottom-left */}
       <div
-        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+        className="absolute bottom-0 left-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(168,85,247,0.06) 0%, transparent 60%)',
-          transform: 'translate(-30%, 30%)',
+          width: '45%', height: '50%',
+          background: 'radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 60%)',
+          transform: 'translate(-25%, 25%)',
+          filter: 'blur(60px)',
         }}
+      />
+
+      {/* Indigo glow — center for depth */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 60%, rgba(99,102,241,0.04) 0%, transparent 70%)' }}
       />
 
       <div className="container relative z-10">

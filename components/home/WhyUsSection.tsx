@@ -85,17 +85,47 @@ export default function WhyUsSection() {
   return (
     <section
       className="relative py-24 overflow-hidden"
-      style={{ background: 'linear-gradient(120deg, #fdf6ff 0%, #fff9f5 35%, #f0fef8 65%, #f0f5ff 100%)' }}
+      style={{ background: 'linear-gradient(160deg, #f7f5ff 0%, #ffffff 40%, #f3f7ff 100%)' }}
     >
+      {/* Subtle dark-to-light transition from Services section above */}
+      <div className="absolute top-0 left-0 right-0 h-28 pointer-events-none z-10"
+        style={{ background: 'linear-gradient(180deg, rgba(4,11,31,0.1) 0%, transparent 100%)' }}
+      />
+
       {/* Subtle dot grid */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.04) 1px, transparent 1px)',
+        backgroundImage: 'radial-gradient(circle, rgba(99,102,241,0.06) 1px, transparent 1px)',
         backgroundSize: '32px 32px',
       }} />
 
-      {/* Soft center glow */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 65% 50% at 50% 30%, rgba(99,102,241,0.05) 0%, transparent 65%)' }}
+      {/* Indigo glow — top-left */}
+      <div className="absolute pointer-events-none"
+        style={{
+          top: '-10%', left: '-5%',
+          width: '50%', height: '60%',
+          background: 'radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 65%)',
+          filter: 'blur(80px)',
+        }}
+      />
+
+      {/* Blue glow — bottom-right */}
+      <div className="absolute pointer-events-none"
+        style={{
+          bottom: '-10%', right: '-5%',
+          width: '45%', height: '55%',
+          background: 'radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 65%)',
+          filter: 'blur(80px)',
+        }}
+      />
+
+      {/* Orange accent — center-bottom */}
+      <div className="absolute pointer-events-none"
+        style={{
+          bottom: '5%', left: '30%',
+          width: '40%', height: '40%',
+          background: 'radial-gradient(circle, rgba(251,146,60,0.05) 0%, transparent 65%)',
+          filter: 'blur(70px)',
+        }}
       />
 
       <div className="container relative z-10">
