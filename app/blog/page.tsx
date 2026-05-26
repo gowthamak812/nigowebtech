@@ -99,14 +99,14 @@ export default function BlogPage() {
           </p>
 
           {/* Category filter pills */}
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto">
             {categories.map((cat) => {
               const color = categoryColors[cat] ?? '#6366f1';
               const isAll = cat === 'All';
               return (
                 <span
                   key={cat}
-                  className="px-4 py-2 rounded-full text-sm font-semibold border cursor-pointer transition-all hover:-translate-y-0.5"
+                  className="flex justify-center px-4 py-2 rounded-full text-sm font-semibold border cursor-pointer transition-all hover:-translate-y-0.5"
                   style={isAll
                     ? { background: '#1a2453', color: '#fff', borderColor: '#1a2453' }
                     : { borderColor: `${color}40`, color, background: `${color}0d` }

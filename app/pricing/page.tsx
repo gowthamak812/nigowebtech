@@ -259,13 +259,13 @@ export default function PricingPage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="section-hero relative pt-28 pb-20 overflow-hidden">
+      <section className="section-hero relative pt-24 sm:pt-28 pb-12 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-[140px] pointer-events-none animate-blob" style={{ background: 'rgba(99,102,241,0.12)' }} />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-[140px] pointer-events-none animate-blob" style={{ background: 'rgba(251,146,60,0.09)', animationDelay: '3s' }} />
 
         <div className="container relative z-10 text-center">
-          <div className="animate-slide-in-down mb-6">
+          <div className="animate-slide-in-down mb-4 sm:mb-6">
             <span className="badge badge-orange">
               <span className="flex h-2 w-2 relative mr-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: '#f97316' }} />
@@ -280,19 +280,19 @@ export default function PricingPage() {
             <span className="gradient-text-warm">Affordable</span>{' '}
             Plans
           </h1>
-          <p className="text-gray-500 text-xl font-medium max-w-2xl mx-auto leading-relaxed mb-10 animate-slide-in-up" style={{ animationDelay: '0.1s' }}>
+          <p className="text-gray-500 text-xl font-medium max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-10 animate-slide-in-up" style={{ animationDelay: '0.1s' }}>
             No hidden fees. No long-term contracts. Choose a plan that fits your goals — or get a custom quote.
           </p>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-3 text-sm text-gray-500 font-semibold animate-slide-in-up mb-14" style={{ animationDelay: '0.2s' }}>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm text-gray-500 font-semibold animate-slide-in-up mb-8 sm:mb-14 max-w-xl sm:max-w-3xl mx-auto" style={{ animationDelay: '0.2s' }}>
             {[
               { label: 'Free Consultation', icon: '💬' },
               { label: 'Fast Delivery', icon: '⚡' },
               { label: '100% Satisfaction', icon: '✅' },
               { label: 'Flexible Payment', icon: '💳' },
             ].map((item, k) => (
-              <span key={k} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
+              <span key={k} className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
                 <span>{item.icon}</span>
                 {item.label}
               </span>
@@ -657,7 +657,23 @@ export default function PricingPage() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[160px] pointer-events-none" style={{ background: 'rgba(99,102,241,0.07)', transform: 'translate(30%,-30%)' }} />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[160px] pointer-events-none" style={{ background: 'rgba(251,146,60,0.06)', transform: 'translate(-30%,30%)' }} />
 
-        <div className="container relative z-10">
+        <div className="container relative z-10 px-3 sm:px-8">
+
+          {/* Badge — outside the card, centered like homepage */}
+          <div className="flex justify-center mb-6">
+            <span
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest"
+              style={{
+                background: 'rgba(249,115,22,0.12)',
+                color: '#fb923c',
+                border: '1px solid rgba(249,115,22,0.25)',
+              }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
+              Free Consultation
+            </span>
+          </div>
+
           {/* Outer card */}
           <div
             style={{
@@ -671,10 +687,10 @@ export default function PricingPage() {
           >
             {/* Inner card */}
             <div
+              className="p-6 sm:p-12"
               style={{
                 borderRadius: '30px',
                 background: 'linear-gradient(135deg, #0e1a42 0%, #111827 55%, #1a0b30 100%)',
-                padding: '3rem',
                 overflow: 'hidden',
                 position: 'relative',
               }}
@@ -683,34 +699,27 @@ export default function PricingPage() {
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-[100px] pointer-events-none" style={{ background: 'rgba(168,85,247,0.15)', transform: 'translate(20%,-20%)' }} />
               <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-[100px] pointer-events-none" style={{ background: 'rgba(99,102,241,0.12)', transform: 'translate(-20%,20%)' }} />
 
-              <div className="relative z-10 flex flex-col lg:flex-row gap-10 items-center lg:items-center">
+              <div className="relative z-10 flex flex-col lg:flex-row gap-10 lg:items-center">
 
-                {/* Left — copy */}
-                <div className="flex-1 text-center lg:text-left flex flex-col justify-center">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-5" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}>
-                    <span className="flex h-1.5 w-1.5 rounded-full" style={{ background: '#fb923c' }} />
-                    <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>
-                      Free Consultation
-                    </span>
-                  </div>
-
+                {/* Left — copy (left-aligned like portfolio on mobile) */}
+                <div className="flex-1 text-left flex flex-col justify-center">
                   <h2 style={{ fontSize: 'clamp(1.75rem,3.5vw,2.75rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#ffffff', lineHeight: 1.15, marginBottom: '1rem' }}>
                     Not Sure Which<br />Plan?{' '}
                     <span className="gradient-text-warm">Let&apos;s Talk</span>
                   </h2>
 
-                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', fontWeight: 500, lineHeight: 1.7, marginBottom: '1.75rem', maxWidth: '26rem' }}>
-                    Tell us about your project and we&apos;ll recommend the best plan for your budget — no pressure, no commitment.
+                  <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontWeight: 500, lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '26rem' }}>
+                    Tell us about your project and we&apos;ll recommend the best plan for your budget. No pressure &amp; no commitment.
                   </p>
 
-                  {/* Mini trust items */}
+                  {/* Mini trust items — left-aligned */}
                   <div className="flex flex-col gap-2.5">
                     {[
                       { icon: '⚡', text: 'Response within 2 hours' },
                       { icon: '🎯', text: 'Tailored plan recommendation' },
                       { icon: '🔒', text: 'No commitment required' },
                     ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-2.5 justify-center lg:justify-start">
+                      <div key={i} className="flex items-center gap-2.5">
                         <span style={{
                           width: '1.6rem', height: '1.6rem', borderRadius: '8px', flexShrink: 0,
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -726,40 +735,38 @@ export default function PricingPage() {
                   </div>
                 </div>
 
-                {/* Vertical divider (desktop) */}
+                {/* Vertical divider (desktop only) */}
                 <div className="hidden lg:block w-px self-stretch" style={{ background: 'rgba(255,255,255,0.08)' }} />
 
-                {/* Right — actions */}
+                {/* Right — actions (mini stats + buttons, matching portfolio pattern) */}
                 <div className="flex-shrink-0 w-full lg:w-64 flex flex-col gap-3">
-                  {/* Rating chip */}
-                  <div className="flex items-center gap-3 p-3 rounded-2xl mb-1" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                    <div style={{
-                      width: '2.5rem', height: '2.5rem', borderRadius: '12px', flexShrink: 0,
-                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                      background: 'rgba(251,191,36,0.12)',
-                    }}>
-                      <span style={{ fontSize: '0.95rem', fontWeight: 900, color: '#fbbf24', lineHeight: 1 }}>4.8</span>
-                    </div>
-                    <div>
-                      <div className="flex gap-0.5" style={{ color: '#fbbf24', fontSize: '0.65rem' }}>★★★★★</div>
-                      <p style={{ fontSize: '0.7rem', fontWeight: 600, color: 'rgba(255,255,255,0.45)', margin: 0 }}>
-                        50+ happy clients
-                      </p>
-                    </div>
+                  {/* Mini stat row — 3 cols like portfolio */}
+                  <div className="grid grid-cols-3 gap-3 mb-1">
+                    {[
+                      { value: '50+', label: 'Projects' },
+                      { value: '4.8★', label: 'Rating' },
+                      { value: '<2hr', label: 'Response' },
+                    ].map((s, i) => (
+                      <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '0.9rem 0.5rem', textAlign: 'center' }}>
+                        <div style={{ fontSize: '1.1rem', fontWeight: 900, color: '#ffffff', lineHeight: 1, marginBottom: '0.3rem', letterSpacing: '-0.02em' }}>{s.value}</div>
+                        <div style={{ fontSize: '0.58rem', fontWeight: 700, color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{s.label}</div>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Primary CTA */}
                   <Link
                     href="/contact"
                     id="pricing-cta-contact"
-                    className="flex items-center justify-center gap-2 font-bold text-sm transition-all hover:scale-[1.03] hover:-translate-y-0.5"
+                    className="flex items-center justify-center gap-2 font-bold text-sm transition-all hover:scale-[1.02] hover:-translate-y-0.5"
                     style={{
-                      padding: '0.95rem 1.5rem',
+                      padding: '1rem 1.5rem',
                       borderRadius: '16px',
                       background: 'linear-gradient(135deg,#fb923c,#ec4899,#6366f1)',
                       color: '#fff',
                       textDecoration: 'none',
-                      boxShadow: '0 8px 28px rgba(251,146,60,0.3)',
+                      boxShadow: '0 10px 32px rgba(251,146,60,0.25)',
+                      fontSize: '0.95rem',
                     }}
                   >
                     <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -774,14 +781,15 @@ export default function PricingPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     id="pricing-cta-whatsapp"
-                    className="flex items-center justify-center gap-2 font-bold text-sm transition-all hover:scale-[1.03] hover:-translate-y-0.5"
+                    className="flex items-center justify-center gap-2 font-bold text-sm transition-all hover:scale-[1.02] hover:-translate-y-0.5"
                     style={{
-                      padding: '0.95rem 1.5rem',
+                      padding: '1rem 1.5rem',
                       borderRadius: '16px',
                       background: 'rgba(37,211,102,0.12)',
                       color: '#4ade80',
                       border: '1.5px solid rgba(37,211,102,0.25)',
                       textDecoration: 'none',
+                      fontSize: '0.95rem',
                     }}
                   >
                     <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">

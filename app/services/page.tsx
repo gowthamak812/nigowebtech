@@ -79,29 +79,6 @@ const services = [
         ctaHref: '/contact',
     },
     {
-        id: 'maintenance',
-        badge: 'Support & Maintenance',
-        iconClass: 'icon-green',
-        iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-        heading: 'Ongoing Support &',
-        headingAccent: 'Maintenance',
-        desc: 'Keep your digital product fast, secure, and up-to-date. We offer responsive maintenance plans covering daily backups, patch deployments, content changes, and 24/7 uptime monitoring.',
-        features: ['Daily Cloud Backups', 'Uptime Monitoring 24/7', 'SSL & DNS Setup', 'Monthly Site Audits', 'Immediate Bugfixes', 'Content Adjustments'],
-        ctaLabel: 'View Support Packages',
-        ctaGradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-        ctaShadow: '0 4px 18px rgba(16,185,129,0.35)',
-        cardTitle: 'Peace of Mind Guarantee',
-        cardDesc: 'We keep your site safe, fast and always online:',
-        cardItems: [
-            { title: 'Security Updates', value: 'Monitor packages and patch vulnerabilities daily', color: '#10b981' },
-            { title: 'Uptime Monitoring', value: 'Instant alerts if any server goes offline', color: '#059669' },
-            { title: 'Content Priority', value: 'Edits completed within 24–48 business hours', color: '#6366f1' },
-        ],
-        reverse: true,
-        accent: '#10b981',
-        ctaHref: '/pricing',
-    },
-    {
         id: 'redesign',
         badge: 'Website Re-design',
         iconClass: 'icon-purple',
@@ -125,6 +102,29 @@ const services = [
         accent: '#a855f7',
         ctaHref: '/contact',
     },
+    {
+        id: 'maintenance',
+        badge: 'Support & Maintenance',
+        iconClass: 'icon-green',
+        iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+        heading: 'Ongoing Support &',
+        headingAccent: 'Maintenance',
+        desc: 'Keep your digital product fast, secure, and up-to-date. We offer responsive maintenance plans covering daily backups, patch deployments, content changes, and 24/7 uptime monitoring.',
+        features: ['Daily Cloud Backups', 'Uptime Monitoring 24/7', 'SSL & DNS Setup', 'Monthly Site Audits', 'Immediate Bugfixes', 'Content Adjustments'],
+        ctaLabel: 'View Support Packages',
+        ctaGradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+        ctaShadow: '0 4px 18px rgba(16,185,129,0.35)',
+        cardTitle: 'Peace of Mind Guarantee',
+        cardDesc: 'We keep your site safe, fast and always online:',
+        cardItems: [
+            { title: 'Security Updates', value: 'Monitor packages and patch vulnerabilities daily', color: '#10b981' },
+            { title: 'Uptime Monitoring', value: 'Instant alerts if any server goes offline', color: '#059669' },
+            { title: 'Content Priority', value: 'Edits completed within 24–48 business hours', color: '#6366f1' },
+        ],
+        reverse: true,
+        accent: '#10b981',
+        ctaHref: '/pricing',
+    }
 ];
 
 const faqs = [
@@ -156,12 +156,12 @@ export default function ServicesPage() {
                         We design and build high-performance web systems, custom mobile apps,
                         and results-oriented digital pipelines to help your brand grow.
                     </p>
-                    <div className="flex flex-wrap justify-center gap-3">
+                    <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto items-stretch">
                         {services.map(s => (
                             <a
                                 key={s.id}
                                 href={`#${s.id}`}
-                                className="px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 hover:-translate-y-0.5"
+                                className="flex items-center justify-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border text-center leading-tight transition-all duration-200 hover:-translate-y-0.5"
                                 style={{ borderColor: `${s.accent}40`, color: s.accent, background: `${s.accent}0d` }}
                             >
                                 {s.badge}

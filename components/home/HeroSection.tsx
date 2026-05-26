@@ -125,7 +125,7 @@ export default function HeroSection() {
               }}
             >
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-              Premium Digital Agency · Coimbatore
+              Premium Digital Agency
             </div>
 
             {/* Headline */}
@@ -230,11 +230,11 @@ export default function HeroSection() {
             </div>
 
             {/* Feature chips */}
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="grid grid-cols-3 sm:flex sm:flex-wrap sm:justify-center gap-2 max-w-xs sm:max-w-none mx-auto">
               {features.map((f, i) => (
                 <div
                   key={i}
-                  className="inline-flex items-center gap-1 sm:gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wider cursor-default transition-all duration-200 hover:-translate-y-0.5"
+                  className="flex justify-center items-center gap-1 sm:gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wider cursor-default transition-all duration-200 hover:-translate-y-0.5"
                   style={{
                     background: 'rgba(255,255,255,0.07)',
                     border: '1px solid rgba(255,255,255,0.12)',

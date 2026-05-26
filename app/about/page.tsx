@@ -113,13 +113,13 @@ export default function AboutPage() {
             About <span className="gradient-text">Nigoweb Technologies</span>
           </h1>
           <div className="section-divider section-divider-center" />
-          <p className="text-lg text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto mb-14">
+          <p className="text-lg text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-14">
             We&apos;re a modern web development company helping businesses succeed online
             with fast, secure, and SEO-optimised digital platforms built to last.
           </p>
 
           {/* Stats strip */}
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-5 mt-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 mt-2 max-w-xl sm:max-w-3xl mx-auto">
             {[
               { value: '50+',   label: 'Projects Delivered', color: '#6366f1', bg: 'rgba(99,102,241,0.08)',   border: 'rgba(99,102,241,0.18)' },
               { value: '4.8★',  label: 'Google Rating',      color: '#f59e0b', bg: 'rgba(245,158,11,0.08)',   border: 'rgba(245,158,11,0.18)' },
@@ -128,13 +128,13 @@ export default function AboutPage() {
             ].map((s, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center px-6 py-4 rounded-2xl"
-                style={{ background: s.bg, border: `1.5px solid ${s.border}`, minWidth: '130px' }}
+                className="flex flex-col items-center px-3 py-3 sm:px-6 sm:py-4 rounded-2xl"
+                style={{ background: s.bg, border: `1.5px solid ${s.border}` }}
               >
-                <span style={{ fontSize: 'clamp(1.6rem, 3vw, 2rem)', fontWeight: 900, color: s.color, letterSpacing: '-0.04em', lineHeight: 1 }}>
+                <span style={{ fontSize: 'clamp(1.1rem, 5vw, 2rem)', fontWeight: 900, color: s.color, letterSpacing: '-0.04em', lineHeight: 1 }}>
                   {s.value}
                 </span>
-                <span style={{ fontSize: '0.68rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '0.4rem', textAlign: 'center' }}>
+                <span style={{ fontSize: '0.6rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.06em', marginTop: '0.35rem', textAlign: 'center' }}>
                   {s.label}
                 </span>
               </div>

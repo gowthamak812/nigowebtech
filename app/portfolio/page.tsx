@@ -107,7 +107,7 @@ export default function PortfolioPage() {
           </p>
 
           {/* Service tag pills — matching services page nav links style */}
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto items-stretch">
             {[
               { label: 'FinTech Platform', color: '#6366f1' },
               { label: 'Web Dashboard', color: '#38bdf8' },
@@ -120,7 +120,7 @@ export default function PortfolioPage() {
             ].map((tag, i) => (
               <span
                 key={i}
-                className="px-4 py-2 rounded-full text-sm font-semibold border"
+                className="flex items-center justify-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border text-center leading-tight"
                 style={{ borderColor: `${tag.color}40`, color: tag.color, background: `${tag.color}0d` }}
               >
                 {tag.label}
@@ -159,17 +159,15 @@ export default function PortfolioPage() {
                 <div
                   style={{
                     background: `linear-gradient(145deg, ${p.accent} 0%, ${p.accentEnd} 100%)`,
-                    minWidth: '280px',
-                    maxWidth: '280px',
                     position: 'relative',
                     overflow: 'hidden',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    padding: '2rem',
+                    padding: '1.5rem',
                     flexShrink: 0,
                   }}
-                  className="w-full lg:w-auto min-h-[200px] lg:min-h-0"
+                  className="w-full lg:w-[280px] min-h-[200px] lg:min-h-0"
                 >
                   {/* Large faded number */}
                   <span style={{
@@ -252,7 +250,7 @@ export default function PortfolioPage() {
                 </div>
 
                 {/* Right — content */}
-                <div style={{ flex: 1, padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1.25rem' }}>
+                <div className="p-4 sm:p-8" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1.25rem' }}>
                   {/* Title row */}
                   <div>
                     <div className="flex items-start justify-between gap-3 mb-2">
@@ -281,11 +279,7 @@ export default function PortfolioPage() {
                   </div>
 
                   {/* Metrics grid */}
-                  <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    gap: '0.5rem',
-                  }} className="grid-cols-2 sm:grid-cols-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {p.metrics.map((m, j) => (
                       <div key={j} style={{
                         background: `${p.accent}08`,
