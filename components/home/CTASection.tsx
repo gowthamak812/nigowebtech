@@ -213,7 +213,7 @@ export default function CTASection() {
                   </div>
                   <div>
                     <div className="text-amber-400 text-xs leading-none mb-0.5">★★★★★</div>
-                    <p className="text-xs font-bold" style={{ color: '#0f172a' }}>4.9 / 5 Rating</p>
+                    <p className="text-xs font-bold" style={{ color: '#0f172a' }}>4.8 / 5 Rating</p>
                   </div>
                 </div>
                 <p className="text-[11px] font-medium" style={{ color: '#94a3b8' }}>

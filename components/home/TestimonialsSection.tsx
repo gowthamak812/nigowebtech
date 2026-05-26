@@ -176,7 +176,7 @@ export default function TestimonialsSection() {
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}
           >
             <div>
-              <p className="text-brand-navy text-3xl font-black" style={{ fontFamily: 'Outfit, sans-serif' }}>4.9</p>
+              <p className="text-brand-navy text-3xl font-black" style={{ fontFamily: 'Outfit, sans-serif' }}>4.8</p>
               <div className="flex gap-0.5 text-amber-400 text-sm">★★★★★</div>
             </div>
             <div className="w-px h-12 bg-gray-200" />

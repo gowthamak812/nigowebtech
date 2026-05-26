@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+
 // ── SVG Tech Logos ────────────────────────────────────────────────────────────
 const LogoReact = () => (
   <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
@@ -206,9 +210,9 @@ const stats = [
     color: '#f97316',
   },
   {
-    value: '99%',
-    label: 'Client Satisfaction',
-    sub: '5-star average',
+    value: '4.8+',
+    label: 'Google Rating',
+    sub: '★★★★★ reviews',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -244,6 +248,68 @@ const maskStyle = {
   WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
   maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
 };
+
+const allTechs = [...techsRow1, ...techsRow2];
+const PER_SLIDE = 4;
+const techSlides = Array.from({ length: Math.ceil(allTechs.length / PER_SLIDE) }, (_, i) =>
+  allTechs.slice(i * PER_SLIDE, i * PER_SLIDE + PER_SLIDE)
+);
+
+function MobileTechCarousel() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const onScroll = () => setActive(Math.round(el.scrollLeft / el.offsetWidth));
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => el.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const goTo = (i: number) => {
+    const el = scrollRef.current;
+    if (el) el.scrollTo({ left: i * el.offsetWidth, behavior: 'smooth' });
+  };
+
+  return (
+    <div className="sm:hidden">
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto"
+        style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {techSlides.map((group, si) => (
+          <div key={si} className="flex-shrink-0 w-full grid grid-cols-2 gap-3 px-1" style={{ scrollSnapAlign: 'start' }}>
+            {group.map(({ name, color, Logo }, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2.5 px-3 py-3 rounded-2xl"
+                style={{ background: `${color}10`, border: `1.5px solid ${color}30` }}
+              >
+                <div className="w-7 h-7 flex-shrink-0 flex items-center justify-center">
+                  <Logo />
+                </div>
+                <span className="font-bold text-[13px] tracking-wide truncate" style={{ color }}>{name}</span>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+      {/* Dot indicators */}
+      <div className="flex justify-center gap-2 mt-4">
+        {techSlides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className="rounded-full transition-all duration-300"
+            style={{ width: active === i ? '20px' : '8px', height: '8px', background: active === i ? '#6366f1' : 'rgba(15,23,42,0.15)' }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function TrustSection() {
   return (
@@ -351,19 +417,24 @@ export default function TrustSection() {
             </p>
           </div>
 
-          <div className="relative overflow-hidden mb-3" style={maskStyle}>
-            <div className="animate-marquee flex gap-3 whitespace-nowrap">
-              {[...techsRow1, ...techsRow1, ...techsRow1].map((tech, i) => (
-                <TechPill key={i} tech={tech} />
-              ))}
-            </div>
-          </div>
+          {/* Mobile: snap-scroll carousel */}
+          <MobileTechCarousel />
 
-          <div className="relative overflow-hidden" style={maskStyle}>
-            <div className="animate-marquee-reverse flex gap-3 whitespace-nowrap">
-              {[...techsRow2, ...techsRow2, ...techsRow2].map((tech, i) => (
-                <TechPill key={i} tech={tech} />
-              ))}
+          {/* Desktop: marquee rows */}
+          <div className="hidden sm:block">
+            <div className="relative overflow-hidden mb-3" style={maskStyle}>
+              <div className="animate-marquee flex gap-3 whitespace-nowrap">
+                {[...techsRow1, ...techsRow1, ...techsRow1].map((tech, i) => (
+                  <TechPill key={i} tech={tech} />
+                ))}
+              </div>
+            </div>
+            <div className="relative overflow-hidden" style={maskStyle}>
+              <div className="animate-marquee-reverse flex gap-3 whitespace-nowrap">
+                {[...techsRow2, ...techsRow2, ...techsRow2].map((tech, i) => (
+                  <TechPill key={i} tech={tech} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
