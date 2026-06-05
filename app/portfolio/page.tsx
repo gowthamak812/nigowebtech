@@ -85,29 +85,28 @@ export default function PortfolioPage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-16 overflow-hidden" style={{ background: 'linear-gradient(160deg, #f0fdf4 0%, #ffffff 60%)' }}>
+      <section className="relative pt-20 pb-12 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full" style={{ background: 'rgba(16,185,129,0.08)', filter: 'blur(120px)' }} />
-          <div className="absolute top-[20%] right-[5%] w-[400px] h-[400px] rounded-full" style={{ background: 'rgba(59,130,246,0.06)', filter: 'blur(100px)' }} />
-          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <img src="/banner-img.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.55)' }} />
         </div>
 
         <div className="container relative z-10 text-center">
           <span className="badge mb-5">Our Portfolio</span>
 
-          <h1 className="text-brand-navy mb-4">
+          <h1 className="mb-4" style={{ color: '#ffffff' }}>
             Work We&apos;re{' '}
             <span className="gradient-text">Proud Of</span>
           </h1>
 
           <div className="section-divider section-divider-center" />
 
-          <p className="text-lg text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-sm font-medium leading-relaxed max-w-xl mx-auto mb-6" style={{ color: 'rgba(255,255,255,0.75)' }}>
             From futuristic FinTech platforms to corporate identities and our own SaaS product — here&apos;s what we&apos;ve built.
           </p>
 
           {/* Service tag pills — matching services page nav links style */}
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto items-stretch">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto items-stretch mt-6">
             {[
               { label: 'FinTech Platform', color: '#6366f1' },
               { label: 'Web Dashboard', color: '#38bdf8' },
@@ -120,8 +119,8 @@ export default function PortfolioPage() {
             ].map((tag, i) => (
               <span
                 key={i}
-                className="flex items-center justify-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border text-center leading-tight"
-                style={{ borderColor: `${tag.color}40`, color: tag.color, background: `${tag.color}0d` }}
+                className="flex items-center justify-center px-4 py-2 rounded-full text-[11px] sm:text-xs font-semibold text-center leading-tight transition-all duration-300 hover:-translate-y-1"
+                style={{ background: 'rgba(255,255,255,0.08)', border: `1.5px solid ${tag.color}`, color: '#ffffff', backdropFilter: 'blur(12px)', boxShadow: `0 4px 16px ${tag.color}30` }}
               >
                 {tag.label}
               </span>
@@ -131,8 +130,8 @@ export default function PortfolioPage() {
       </section>
 
       {/* ── Projects ──────────────────────────────────────── */}
-      <section className="relative py-20 overflow-hidden" style={{ background: 'linear-gradient(160deg, #f0f9ff 0%, #e0f2fe 100%)' }}>
-        <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
+      <section className="relative py-20 overflow-hidden">
+        <img src="/our-projects-bg.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
 
         <div className="container relative z-10">
           <div className="text-center mb-12">
@@ -366,7 +365,9 @@ export default function PortfolioPage() {
       </section>
 
       {/* ── CTA — full-width dark ─────────────────────────── */}
-      <section className="navy-section relative py-24 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
+        <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
         <div className="absolute inset-0 grid-pattern-dark opacity-30 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" style={{ background: 'rgba(99,102,241,0.14)', transform: 'translate(20%,-20%)' }} />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" style={{ background: 'rgba(251,146,60,0.1)', transform: 'translate(-20%,20%)' }} />

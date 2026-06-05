@@ -80,37 +80,33 @@ export default function BlogPage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-16 overflow-hidden" style={{ background: 'linear-gradient(160deg, #fffbeb 0%, #ffffff 60%)' }}>
+      <section className="relative pt-20 pb-12 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full" style={{ background: 'rgba(249,115,22,0.08)', filter: 'blur(120px)' }} />
-          <div className="absolute top-[20%] right-[5%] w-[400px] h-[400px] rounded-full" style={{ background: 'rgba(245,158,11,0.06)', filter: 'blur(100px)' }} />
-          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <img src="/banner-img.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.55)' }} />
         </div>
 
         <div className="container relative z-10 text-center">
           <span className="badge badge-orange mb-5">Insights &amp; Tips</span>
-          <h1 className="text-brand-navy mb-4">
+          <h1 className="mb-4" style={{ color: '#ffffff' }}>
             Our <span className="gradient-text">Blog</span>
           </h1>
           <div className="section-divider section-divider-center" />
-          <p className="text-lg text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-sm font-medium leading-relaxed max-w-xl mx-auto mb-6" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Tips, insights, and best practices for building better websites.
             Learn from our experience helping businesses grow online.
           </p>
 
           {/* Category filter pills */}
-          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto mt-6">
             {categories.map((cat) => {
               const color = categoryColors[cat] ?? '#6366f1';
               const isAll = cat === 'All';
               return (
                 <span
                   key={cat}
-                  className="flex justify-center px-4 py-2 rounded-full text-sm font-semibold border cursor-pointer transition-all hover:-translate-y-0.5"
-                  style={isAll
-                    ? { background: '#1a2453', color: '#fff', borderColor: '#1a2453' }
-                    : { borderColor: `${color}40`, color, background: `${color}0d` }
-                  }
+                  className="flex justify-center px-4 py-2 rounded-full text-[11px] sm:text-xs font-semibold cursor-pointer transition-all hover:-translate-y-1"
+                  style={{ background: 'rgba(255,255,255,0.08)', border: `1.5px solid ${isAll ? 'rgba(255,255,255,0.6)' : color}`, color: '#ffffff', backdropFilter: 'blur(12px)', boxShadow: isAll ? 'none' : `0 4px 16px ${color}30` }}
                 >
                   {cat}
                 </span>
@@ -283,7 +279,9 @@ export default function BlogPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="navy-section relative py-24 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
+        <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
         <div className="absolute inset-0 grid-pattern-dark opacity-30 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'rgba(99,102,241,0.12)', filter: 'blur(140px)', transform: 'translate(20%,-20%)' }} />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'rgba(251,146,60,0.08)', filter: 'blur(140px)', transform: 'translate(-20%,20%)' }} />

@@ -81,109 +81,111 @@ const whyUs = [
   },
 ];
 
+const stats = [
+  { value: '50+', label: 'Projects Delivered', color: '#6366f1' },
+  { value: '4.9★', label: 'Average Rating', color: '#f59e0b' },
+  { value: '100%', label: 'Client Satisfaction', color: '#10b981' },
+  { value: '<2hr', label: 'Response Time', color: '#38bdf8' },
+];
+
 export default function WhyUsSection() {
   return (
     <section
       className="relative py-24 overflow-hidden"
-      style={{ background: 'linear-gradient(160deg, #f7f5ff 0%, #ffffff 40%, #f3f7ff 100%)' }}
+      style={{ background: 'linear-gradient(160deg, #f5f3ff 0%, #ffffff 45%, #eff6ff 100%)' }}
     >
-      {/* Subtle dark-to-light transition from Services section above */}
-      <div className="absolute top-0 left-0 right-0 h-28 pointer-events-none z-10"
-        style={{ background: 'linear-gradient(180deg, rgba(4,11,31,0.1) 0%, transparent 100%)' }}
-      />
-
-      {/* Subtle dot grid */}
+      {/* Dot grid */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(99,102,241,0.06) 1px, transparent 1px)',
+        backgroundImage: 'radial-gradient(circle, rgba(99,102,241,0.07) 1px, transparent 1px)',
         backgroundSize: '32px 32px',
       }} />
 
-      {/* Indigo glow — top-left */}
-      <div className="absolute pointer-events-none"
-        style={{
-          top: '-10%', left: '-5%',
-          width: '50%', height: '60%',
-          background: 'radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 65%)',
-          filter: 'blur(80px)',
-        }}
-      />
+      {/* Indigo glow top-left */}
+      <div className="absolute pointer-events-none" style={{
+        top: '-10%', left: '-5%', width: '50%', height: '60%',
+        background: 'radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 65%)',
+        filter: 'blur(80px)',
+      }} />
 
-      {/* Blue glow — bottom-right */}
-      <div className="absolute pointer-events-none"
-        style={{
-          bottom: '-10%', right: '-5%',
-          width: '45%', height: '55%',
-          background: 'radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 65%)',
-          filter: 'blur(80px)',
-        }}
-      />
-
-      {/* Orange accent — center-bottom */}
-      <div className="absolute pointer-events-none"
-        style={{
-          bottom: '5%', left: '30%',
-          width: '40%', height: '40%',
-          background: 'radial-gradient(circle, rgba(251,146,60,0.05) 0%, transparent 65%)',
-          filter: 'blur(70px)',
-        }}
-      />
+      {/* Sky glow bottom-right */}
+      <div className="absolute pointer-events-none" style={{
+        bottom: '-10%', right: '-5%', width: '45%', height: '55%',
+        background: 'radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 65%)',
+        filter: 'blur(80px)',
+      }} />
 
       <div className="container relative z-10">
-        <div className="text-center mb-14">
-          <span className="badge mb-4">Why Choose Us</span>
-          <h2 className="text-brand-navy mb-4">
-            The <span className="gradient-text">Nigoweb</span> Advantage
+
+        {/* ── Header ── */}
+        <div className="text-center mb-16">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5"
+            style={{ background: 'rgba(99,102,241,0.10)', color: '#6366f1', border: '1px solid rgba(99,102,241,0.22)' }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
+            Why Choose Us
+          </span>
+          <h2 className="mb-4" style={{ color: '#0f172a' }}>
+            The{' '}
+            <span style={{
+              background: 'linear-gradient(135deg, #6366f1 0%, #38bdf8 100%)',
+              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+            }}>
+              Nigoweb
+            </span>{' '}
+            Advantage
           </h2>
-          <div className="section-divider section-divider-center" />
-          <p className="text-gray-500 max-w-xl mx-auto font-medium">
+          <div className="mx-auto mb-5 h-px w-20 rounded-full"
+            style={{ background: 'linear-gradient(to right, transparent, #6366f1, #38bdf8, transparent)' }} />
+          <p className="max-w-xl mx-auto text-base font-medium" style={{ color: '#64748b' }}>
             Design excellence, technical mastery, and a genuine commitment to your growth.
           </p>
         </div>
 
-        {/* 4×2 grid — each card has its own unique color as a top border only */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* ── 4×2 Cards grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
           {whyUs.map((w, i) => (
             <div
               key={i}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-default"
+              className="group relative rounded-3xl overflow-hidden cursor-default transition-all duration-400 hover:-translate-y-2"
               style={{
-                border: '1px solid rgba(0,0,0,0.05)',
-                borderTop: `3px solid ${w.color}`,
+                background: `linear-gradient(145deg, #ffffff 0%, ${w.color}08 100%)`,
+                border: `1px solid ${w.color}25`,
+                boxShadow: '0 4px 24px rgba(0,0,0,0.07)',
               }}
             >
-              {/* Hover tint */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse at top left, ${w.color}08, transparent 60%)` }}
-              />
+              {/* Top color bar */}
+              <div className="h-0.5 w-full" style={{ background: `linear-gradient(to right, ${w.color}, ${w.color}40)` }} />
 
-              <div className="p-5 relative z-10">
-                {/* Number */}
-                <div className="text-[10px] font-black uppercase tracking-widest mb-3"
-                  style={{ color: `${w.color}70` }}>
-                  {String(i + 1).padStart(2, '0')}
-                </div>
+              {/* Hover glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+                style={{ background: `radial-gradient(ellipse at top left, ${w.color}18, transparent 65%)` }} />
 
-                {/* Icon — each card's own color */}
+              {/* Large decorative number */}
+              <div className="absolute bottom-1 right-3 font-black leading-none select-none pointer-events-none"
+                style={{ fontSize: '5.5rem', color: `${w.color}09`, fontFamily: 'Outfit, sans-serif' }}>
+                {String(i + 1).padStart(2, '0')}
+              </div>
+
+              <div className="relative z-10 p-6">
+                {/* Icon */}
                 <div
-                  className="w-11 h-11 rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
-                  style={{ background: `${w.color}12`, color: w.color }}
+                  className="w-13 h-13 w-12 h-12 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: `${w.color}18`, border: `1.5px solid ${w.color}38`, color: w.color }}
                 >
                   {w.icon}
                 </div>
 
-                <h3 className="text-brand-navy text-sm font-bold mb-1.5 leading-snug">{w.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{w.desc}</p>
+                <h3 className="font-bold text-base mb-2 leading-snug" style={{ color: '#0f172a' }}>{w.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#64748b' }}>{w.desc}</p>
 
-                {/* Bottom accent — expands on hover in card's color */}
-                <div
-                  className="mt-4 h-px w-6 rounded-full transition-all duration-300 group-hover:w-full"
-                  style={{ background: `linear-gradient(to right, ${w.color}, transparent)` }}
-                />
+                {/* Bottom accent */}
+                <div className="mt-5 h-0.5 w-7 rounded-full transition-all duration-400 group-hover:w-full"
+                  style={{ background: `linear-gradient(to right, ${w.color}, transparent)` }} />
               </div>
             </div>
           ))}
         </div>
+
+
       </div>
     </section>
   );

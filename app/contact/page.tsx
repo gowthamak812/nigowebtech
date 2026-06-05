@@ -57,37 +57,36 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-20 overflow-hidden" style={{ background: 'linear-gradient(160deg, #fff1f2 0%, #ffffff 60%)' }}>
+      <section className="relative pt-20 pb-12 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full" style={{ background: 'rgba(244,63,94,0.07)', filter: 'blur(120px)' }} />
-          <div className="absolute top-[20%] right-[5%] w-[400px] h-[400px] rounded-full" style={{ background: 'rgba(249,115,22,0.06)', filter: 'blur(100px)' }} />
-          <div className="absolute inset-0 grid-pattern opacity-40" />
+          <img src="/banner-img.png" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.55)' }} />
         </div>
 
         <div className="container relative z-10 text-center">
           <span className="badge mb-5" style={{ background: 'rgba(249,115,22,0.08)', color: '#ea580c', borderColor: 'rgba(249,115,22,0.2)' }}>
             Get in Touch
           </span>
-          <h1 className="text-brand-navy mb-4">
+          <h1 className="mb-4" style={{ color: '#ffffff' }}>
             Let&apos;s <span className="gradient-text">Get Started</span>
           </h1>
           <div className="section-divider section-divider-center" />
-          <p className="text-lg text-gray-500 font-medium leading-relaxed max-w-xl mx-auto mb-12">
+          <p className="text-sm font-medium leading-relaxed max-w-xl mx-auto mb-6" style={{ color: 'rgba(255,255,255,0.75)' }}>
             Ready to grow your business online? Get in touch for a free consultation — no commitment required.
           </p>
 
-          {/* Trust chips */}
-          <div className="flex flex-wrap justify-center gap-3">
+          {/* Stats */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mt-8">
             {[
-              { label: 'Free Consultation', color: '#f97316' },
-              { label: 'Response in &lt;2hrs', color: '#6366f1' },
-              { label: 'No Long Contracts', color: '#10b981' },
-              { label: '4.8★ Rated Agency', color: '#ec4899' },
-            ].map((chip, i) => (
-              <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '5px 14px', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 700, color: chip.color, background: `${chip.color}10`, border: `1.5px solid ${chip.color}25` }}>
-                <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: chip.color, flexShrink: 0 }} />
-                <span dangerouslySetInnerHTML={{ __html: chip.label }} />
-              </span>
+              { value: '<2hr', label: 'Response Time', color: '#f97316' },
+              { value: '50+', label: 'Projects Done', color: '#6366f1' },
+              { value: '4.8★', label: 'Client Rating', color: '#f59e0b' },
+              { value: '100%', label: 'Satisfaction', color: '#10b981' },
+            ].map((s, i) => (
+              <div key={i} className="flex flex-col items-center px-4 py-3 rounded-2xl" style={{ background: 'rgba(255,255,255,0.08)', border: `1.5px solid ${s.color}50`, backdropFilter: 'blur(12px)' }}>
+                <span style={{ fontSize: 'clamp(1.1rem,4vw,1.5rem)', fontWeight: 900, color: s.color, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.value}</span>
+                <span style={{ fontSize: '0.6rem', fontWeight: 700, color: 'rgba(255,255,255,0.55)', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '0.3rem' }}>{s.label}</span>
+              </div>
             ))}
           </div>
         </div>
@@ -339,18 +338,18 @@ export default function ContactPage() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────── */}
-      <section className="navy-section relative py-24 overflow-hidden">
-        <div className="absolute inset-0 grid-pattern-dark opacity-30 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'rgba(99,102,241,0.12)', filter: 'blur(140px)', transform: 'translate(20%,-20%)' }} />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'rgba(249,115,22,0.07)', filter: 'blur(120px)', transform: 'translate(-20%,20%)' }} />
+      <section className="relative py-24 overflow-hidden" style={{ background: 'linear-gradient(160deg, #f0f4ff 0%, #f8f7ff 50%, #eff6ff 100%)' }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(99,102,241,0.06) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'rgba(99,102,241,0.07)', filter: 'blur(140px)', transform: 'translate(20%,-20%)' }} />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'rgba(249,115,22,0.05)', filter: 'blur(120px)', transform: 'translate(-20%,20%)' }} />
 
         <div className="container relative z-10">
           <div className="text-center mb-14">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#fb923c' }} />
-              <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.5)' }}>Common Questions</span>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-5" style={{ background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.2)' }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#6366f1' }} />
+              <span style={{ fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const, color: '#6366f1' }}>Common Questions</span>
             </span>
-            <h2 style={{ fontFamily: 'Outfit, sans-serif', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#ffffff', lineHeight: 1.2 }}>
+            <h2 style={{ fontFamily: 'Outfit, sans-serif', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#0f172a', lineHeight: 1.2 }}>
               Frequently Asked <span className="gradient-text-warm">Questions</span>
             </h2>
           </div>
@@ -361,8 +360,9 @@ export default function ContactPage() {
                 key={i}
                 style={{
                   borderRadius: '18px',
-                  background: openFaq === i ? 'rgba(255,255,255,0.07)' : 'rgba(255,255,255,0.03)',
-                  border: openFaq === i ? '1.5px solid rgba(255,255,255,0.14)' : '1.5px solid rgba(255,255,255,0.06)',
+                  background: '#ffffff',
+                  border: openFaq === i ? '1.5px solid rgba(99,102,241,0.35)' : '1.5px solid rgba(0,0,0,0.07)',
+                  boxShadow: openFaq === i ? '0 4px 20px rgba(99,102,241,0.1)' : '0 2px 8px rgba(0,0,0,0.04)',
                   overflow: 'hidden',
                   transition: 'all 300ms',
                 }}
@@ -375,19 +375,99 @@ export default function ContactPage() {
                     <span style={{ width: '26px', height: '26px', borderRadius: '8px', background: 'rgba(249,115,22,0.15)', border: '1px solid rgba(249,115,22,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '0.62rem', fontWeight: 900, color: '#fb923c' }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span style={{ fontSize: '0.93rem', fontWeight: 700, color: '#ffffff', lineHeight: 1.4 }}>{faq.q}</span>
+                    <span style={{ fontSize: '0.93rem', fontWeight: 700, color: '#111827', lineHeight: 1.4 }}>{faq.q}</span>
                   </div>
-                  <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '1rem', fontWeight: 300, color: 'rgba(255,255,255,0.6)', transform: openFaq === i ? 'rotate(45deg)' : 'none', transition: 'transform 300ms' }}>
+                  <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: openFaq === i ? 'linear-gradient(135deg,#6366f1,#a855f7)' : 'rgba(99,102,241,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '1rem', fontWeight: 300, color: openFaq === i ? '#ffffff' : '#6366f1', transform: openFaq === i ? 'rotate(45deg)' : 'none', transition: 'all 300ms' }}>
                     +
                   </span>
                 </button>
                 {openFaq === i && (
                   <div style={{ padding: '0 1.5rem 1.25rem 4.25rem' }}>
-                    <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, fontWeight: 450 }}>{faq.a}</p>
+                    <p style={{ fontSize: '0.88rem', color: '#6b7280', lineHeight: 1.8, fontWeight: 450 }}>{faq.a}</p>
                   </div>
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ──────────────────────────────────────────── */}
+      <section className="relative py-24 overflow-hidden">
+        <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
+        <div className="absolute inset-0 grid-pattern-dark opacity-30 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" style={{ background: 'rgba(99,102,241,0.14)', transform: 'translate(20%,-20%)' }} />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" style={{ background: 'rgba(251,146,60,0.1)', transform: 'translate(-20%,20%)' }} />
+
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-5xl mx-auto">
+
+            {/* Left */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6" style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)' }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#fb923c', flexShrink: 0 }} />
+                <span style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' as const, color: 'rgba(255,255,255,0.55)' }}>
+                  Let&apos;s Work Together
+                </span>
+              </div>
+              <h2 style={{ fontFamily: 'Outfit, sans-serif', fontSize: 'clamp(2rem,4vw,3.25rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#ffffff', lineHeight: 1.15, marginBottom: '1rem' }}>
+                Ready to Grow{' '}
+                <span className="gradient-text-warm">Your Business?</span>
+              </h2>
+              <p style={{ color: 'rgba(255,255,255,0.48)', fontSize: '1rem', lineHeight: 1.8, fontWeight: 500, maxWidth: '30rem', marginBottom: '2rem' }}>
+                Get in touch for a free consultation — no commitment required. We&apos;ll build you a tailored plan that fits your goals and budget.
+              </p>
+              <div className="flex flex-col gap-2.5">
+                {[
+                  { icon: '⚡', text: 'Response within 2 hours' },
+                  { icon: '🎯', text: 'Tailored plan for your business' },
+                  { icon: '🔒', text: 'No long-term contracts' },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2.5">
+                    <span style={{ width: '1.6rem', height: '1.6rem', borderRadius: '8px', background: 'rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', flexShrink: 0 }}>
+                      {item.icon}
+                    </span>
+                    <span style={{ fontSize: '0.83rem', fontWeight: 600, color: 'rgba(255,255,255,0.5)' }}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right */}
+            <div className="flex flex-col gap-4">
+              <div className="grid grid-cols-3 gap-3 mb-1">
+                {[
+                  { value: '50+', label: 'Projects' },
+                  { value: '4.8★', label: 'Rating' },
+                  { value: '<2hr', label: 'Response' },
+                ].map((s, i) => (
+                  <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '1rem 0.75rem', textAlign: 'center' }}>
+                    <div style={{ fontSize: '1.3rem', fontWeight: 900, color: '#ffffff', lineHeight: 1, marginBottom: '0.3rem', letterSpacing: '-0.02em' }}>{s.value}</div>
+                    <div style={{ fontSize: '0.62rem', fontWeight: 700, color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', letterSpacing: '0.07em' }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <a href="#contact-form" className="flex items-center justify-center gap-2 font-bold text-sm transition-all hover:scale-[1.02] hover:-translate-y-0.5"
+                style={{ padding: '1rem 1.5rem', borderRadius: '16px', background: 'linear-gradient(135deg,#fb923c,#ec4899,#6366f1)', color: '#fff', textDecoration: 'none', boxShadow: '0 10px 32px rgba(251,146,60,0.25)', fontSize: '0.95rem' }}>
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+                Send Us a Message
+              </a>
+              <a href="https://wa.me/919344832658" target="_blank" rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 font-bold text-sm transition-all hover:scale-[1.02] hover:-translate-y-0.5"
+                style={{ padding: '1rem 1.5rem', borderRadius: '16px', background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.8)', border: '1.5px solid rgba(255,255,255,0.12)', textDecoration: 'none', fontSize: '0.95rem' }}>
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Chat on WhatsApp
+              </a>
+              <p className="text-center" style={{ fontSize: '0.72rem', fontWeight: 600, color: 'rgba(255,255,255,0.25)' }}>
+                Free consultation · No commitment required
+              </p>
+            </div>
+
           </div>
         </div>
       </section>

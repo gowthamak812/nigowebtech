@@ -11,90 +11,38 @@ const features = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[100vh] flex flex-col overflow-hidden">
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
 
-      {/* ── BACKGROUND: Animated Aurora ── */}
-      <div className="absolute inset-0 pointer-events-none select-none" style={{ background: '#050914' }}>
+      {/* ── BACKGROUND: mobile image ── */}
+      <div
+        className="absolute inset-0 pointer-events-none select-none sm:hidden"
+        style={{
+          backgroundImage: 'url(/home-banner-mobile.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+      {/* ── BACKGROUND: desktop image ── */}
+      <div
+        className="absolute inset-0 pointer-events-none select-none hidden sm:block"
+        style={{
+          backgroundImage: 'url(/home-banner.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
 
-        {/* Blob 1 — cyan/sky, top-right */}
-        <div
-          className="absolute rounded-full animate-blob"
-          style={{
-            top: '-18%', right: '-10%',
-            width: '750px', height: '750px',
-            background: 'radial-gradient(circle at 40% 40%, rgba(56,189,248,0.75) 0%, rgba(59,130,246,0.45) 42%, transparent 68%)',
-            filter: 'blur(85px)',
-          }}
-        />
-
-        {/* Blob 2 — violet/indigo, bottom-left */}
-        <div
-          className="absolute rounded-full animate-blob"
-          style={{
-            bottom: '-22%', left: '-10%',
-            width: '720px', height: '720px',
-            background: 'radial-gradient(circle at 55% 55%, rgba(139,92,246,0.70) 0%, rgba(99,102,241,0.40) 42%, transparent 68%)',
-            filter: 'blur(90px)',
-            animationDelay: '-5s',
-          }}
-        />
-
-        {/* Blob 3 — orange, top-left */}
-        <div
-          className="absolute rounded-full animate-blob"
-          style={{
-            top: '-8%', left: '-6%',
-            width: '560px', height: '560px',
-            background: 'radial-gradient(circle at 50% 50%, rgba(249,115,22,0.55) 0%, rgba(245,101,0,0.28) 45%, transparent 68%)',
-            filter: 'blur(100px)',
-            animationDelay: '-9s',
-          }}
-        />
-
-        {/* Blob 4 — pink/rose, right-center */}
-        <div
-          className="absolute rounded-full animate-blob"
-          style={{
-            top: '35%', right: '-5%',
-            width: '480px', height: '480px',
-            background: 'radial-gradient(circle at 50% 50%, rgba(236,72,153,0.38) 0%, transparent 68%)',
-            filter: 'blur(110px)',
-            animationDelay: '-12s',
-          }}
-        />
-
-        {/* Blob 5 — teal, bottom-center */}
-        <div
-          className="absolute rounded-full animate-blob"
-          style={{
-            bottom: '0%', left: '30%',
-            width: '420px', height: '420px',
-            background: 'radial-gradient(circle at 50% 50%, rgba(20,184,166,0.28) 0%, transparent 68%)',
-            filter: 'blur(110px)',
-            animationDelay: '-7s',
-          }}
-        />
-
-        {/* Dark vignette over center for text readability */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(ellipse 78% 75% at 50% 46%, rgba(5,9,20,0.90) 0%, rgba(5,9,20,0.55) 52%, transparent 100%)',
-          }}
-        />
-
-        {/* Edge darkening */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(ellipse 150% 150% at 50% 50%, transparent 42%, rgba(5,9,20,0.70) 100%)',
-          }}
-        />
+      {/* ── Overlays (shared) ── */}
+      <div className="absolute inset-0 pointer-events-none select-none">
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.70)' }} />
 
         {/* Bottom fade */}
         <div
           className="absolute inset-x-0 bottom-0 h-[30%]"
-          style={{ background: 'linear-gradient(to top, rgba(5,9,20,1) 0%, rgba(5,9,20,0.5) 60%, transparent 100%)' }}
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)' }}
         />
 
         {/* Subtle grid */}
@@ -106,12 +54,11 @@ export default function HeroSection() {
             backgroundSize: '80px 80px',
           }}
         />
-
       </div>
 
       {/* ── Main content ── */}
       <div className="flex-1 flex items-center">
-        <div className="container relative z-10 pt-32 pb-16 sm:pt-36 lg:py-40">
+        <div className="container relative z-10 pt-20 pb-16">
           <div className="max-w-4xl mx-auto text-center">
 
             {/* Badge */}

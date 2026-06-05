@@ -46,6 +46,7 @@ const IconShield = () => (
 const featured = [
   {
     Icon: IconGlobe,
+    image: '/services/website-development.png',
     title: 'Website Development',
     desc: 'High-performance, SEO-optimized websites built with Next.js that load in under a second and convert visitors into customers.',
     tags: ['Next.js', 'React', 'SEO', 'Performance'],
@@ -55,6 +56,7 @@ const featured = [
   },
   {
     Icon: IconCode,
+    image: '/services/web-application.png',
     title: 'Web App Development',
     desc: 'Scalable dashboards, portals and SaaS products engineered for reliability, security and seamless user experience.',
     tags: ['Node.js', 'APIs', 'Databases', 'Auth'],
@@ -64,6 +66,7 @@ const featured = [
   },
   {
     Icon: IconPhone,
+    image: '/services/mobile-app-development.png',
     title: 'Mobile App Development',
     desc: 'Beautiful cross-platform apps built with React Native & Flutter. One codebase — iOS and Android, both flawless.',
     tags: ['React Native', 'Flutter', 'iOS', 'Android'],
@@ -77,6 +80,7 @@ const featured = [
 const supporting = [
   {
     Icon: IconAI,
+    image: '/services/ai-integration.png',
     title: 'AI Integration',
     desc: 'Chatbots, automation & smart workflows built into your product.',
     color: '#c084fc',
@@ -84,6 +88,7 @@ const supporting = [
   },
   {
     Icon: IconRefresh,
+    image: '/services/redesign.png',
     title: 'Website Redesign',
     desc: 'Modernise your existing site with better UI/UX and speed.',
     color: '#fb923c',
@@ -91,6 +96,7 @@ const supporting = [
   },
   {
     Icon: IconSearch,
+    image: '/services/seo.png',
     title: 'SEO Optimization',
     desc: 'Rank on page 1 with technical SEO and content strategy.',
     color: '#fbbf24',
@@ -98,6 +104,7 @@ const supporting = [
   },
   {
     Icon: IconMegaphone,
+    image: '/services/digital-marketing.png',
     title: 'Digital Marketing',
     desc: 'Targeted campaigns that generate real leads and revenue.',
     color: '#f472b6',
@@ -105,6 +112,7 @@ const supporting = [
   },
   {
     Icon: IconShield,
+    image: '/services/web-maintanence.png',
     title: 'Maintenance & Support',
     desc: '24/7 monitoring, security updates and reliable assistance.',
     color: '#22d3ee',
@@ -213,127 +221,96 @@ export default function ServicesSection() {
         </div>
 
         {/* ── Featured row (3 large cards) ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           {featured.map((s, i) => (
             <div
               key={i}
-              className="group relative rounded-3xl p-7 transition-all duration-400 hover:-translate-y-2 cursor-default overflow-hidden"
-              style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: `1px solid ${s.border}`,
-                backdropFilter: 'blur(12px)',
-              }}
+              className="group rounded-3xl overflow-hidden cursor-default transition-all duration-500 hover:-translate-y-3 flex flex-col"
+              style={{ boxShadow: '0 8px 40px rgba(0,0,0,0.5)', border: `1.5px solid ${s.border}` }}
             >
-              {/* Hover glow */}
-              <div
-                className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-                style={{
-                  background: `radial-gradient(ellipse at top left, ${s.color}18, transparent 60%)`,
-                  boxShadow: `inset 0 0 0 1px ${s.color}40`,
-                }}
-              />
-
-              {/* Top shimmer on hover */}
-              <div
-                className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-t-3xl"
-                style={{ background: `linear-gradient(to right, transparent, ${s.color}90, transparent)` }}
-              />
-
-              {/* Stat badge top-right */}
-              <div className="absolute top-5 right-5 text-right" style={{ color: s.color }}>
-                <div className="text-lg font-black leading-none" style={{ fontFamily: 'Outfit, sans-serif' }}>
-                  {s.stat.value}
+              {/* ── Image top ── */}
+              <div className="relative overflow-hidden" style={{ height: '220px', flexShrink: 0 }}>
+                <img
+                  src={s.image} alt={s.title}
+                  className="w-full h-full object-cover"
+                />
+                {/* Stat badge */}
+                <div className="absolute top-4 right-4 px-3 py-1.5 rounded-xl text-right"
+                  style={{ background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(10px)', border: `1px solid ${s.color}50` }}>
+                  <div className="text-base font-black leading-none" style={{ color: s.color }}>{s.stat.value}</div>
+                  <div className="text-[8px] font-bold uppercase tracking-wider text-white/50">{s.stat.label}</div>
                 </div>
-                <div className="text-[9px] font-bold uppercase tracking-wider" style={{ color: `${s.color}80` }}>
-                  {s.stat.label}
+                {/* Color bar at bottom of image */}
+                <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: `linear-gradient(to right, ${s.color}, ${s.color}60)` }} />
+              </div>
+
+              {/* ── Light content bottom ── */}
+              <div className="flex flex-col flex-1 p-6" style={{ background: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(16px)' }}>
+                {/* Icon + title */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${s.color}15`, border: `1.5px solid ${s.color}35`, color: s.color }}>
+                    <s.Icon />
+                  </div>
+                  <h3 className="font-bold text-lg leading-snug" style={{ color: '#0f172a' }}>{s.title}</h3>
                 </div>
+
+                <p className="text-sm leading-relaxed mb-4" style={{ color: '#475569' }}>{s.desc}</p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {s.tags.map((t, j) => (
+                    <span key={j} className="text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wide"
+                      style={{ background: `${s.color}12`, color: s.color, border: `1px solid ${s.color}30` }}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <Link href="/services"
+                  className="mt-auto inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider transition-all duration-300 group-hover:gap-3"
+                  style={{ color: s.color }}>
+                  Learn More
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
               </div>
-
-              {/* Icon */}
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 relative z-10"
-                style={{ background: `${s.color}18`, border: `1px solid ${s.color}35`, color: s.color }}
-              >
-                <s.Icon />
-              </div>
-
-              <h3 className="font-bold text-lg mb-3 leading-snug relative z-10" style={{ color: '#f1f5f9' }}>
-                {s.title}
-              </h3>
-              <p className="text-sm leading-relaxed mb-6 relative z-10" style={{ color: 'rgba(148,163,184,0.9)' }}>
-                {s.desc}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 mb-6 relative z-10">
-                {s.tags.map((t, j) => (
-                  <span
-                    key={j}
-                    className="text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wide"
-                    style={{ background: `${s.color}18`, color: s.color, border: `1px solid ${s.color}28` }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-all group-hover:gap-3 relative z-10"
-                style={{ color: s.color }}
-              >
-                Learn More
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
             </div>
           ))}
         </div>
 
         {/* ── Supporting services row ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {supporting.map((s, i) => (
             <div
               key={i}
-              className="group relative rounded-2xl p-5 transition-all duration-400 hover:-translate-y-1.5 cursor-default overflow-hidden"
-              style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: `1px solid ${s.border}`,
-                backdropFilter: 'blur(10px)',
-              }}
+              className="group rounded-2xl overflow-hidden cursor-default transition-all duration-500 hover:-translate-y-2 flex flex-col"
+              style={{ boxShadow: '0 6px 28px rgba(0,0,0,0.45)', border: `1.5px solid ${s.border}` }}
             >
-              {/* Hover fill */}
-              <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{ background: `radial-gradient(ellipse at top left, ${s.color}15, transparent 65%)` }}
-              />
-
-              {/* Top shimmer on hover */}
-              <div
-                className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-t-2xl"
-                style={{ background: `linear-gradient(to right, transparent, ${s.color}80, transparent)` }}
-              />
-
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 relative z-10"
-                style={{ background: `${s.color}18`, color: s.color, border: `1px solid ${s.color}28` }}
-              >
-                <s.Icon />
+              {/* ── Image top ── */}
+              <div className="relative overflow-hidden" style={{ height: '140px', flexShrink: 0 }}>
+                <img
+                  src={s.image} alt={s.title}
+                  className="w-full h-full object-cover"
+                />
+                {/* Color bar */}
+                <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: `linear-gradient(to right, ${s.color}, ${s.color}50)` }} />
               </div>
 
-              <h3 className="text-sm font-bold mb-2 leading-snug relative z-10" style={{ color: '#f1f5f9' }}>
-                {s.title}
-              </h3>
-              <p className="text-xs leading-relaxed relative z-10" style={{ color: 'rgba(148,163,184,0.8)' }}>
-                {s.desc}
-              </p>
-
-              {/* Bottom accent */}
-              <div
-                className="mt-4 h-px w-8 rounded-full transition-all duration-400 group-hover:w-full relative z-10"
-                style={{ background: `linear-gradient(to right, ${s.color}, transparent)` }}
-              />
+              {/* ── Light content bottom ── */}
+              <div className="flex flex-col flex-1 p-4" style={{ background: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(16px)' }}>
+                <div className="flex items-center gap-2.5 mb-2">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: `${s.color}15`, border: `1.5px solid ${s.color}35`, color: s.color }}>
+                    <s.Icon />
+                  </div>
+                  <h3 className="text-sm font-bold leading-snug" style={{ color: '#0f172a' }}>{s.title}</h3>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: '#475569' }}>{s.desc}</p>
+                <div className="mt-3 h-0.5 w-6 rounded-full transition-all duration-500 group-hover:w-full"
+                  style={{ background: `linear-gradient(to right, ${s.color}, transparent)` }} />
+              </div>
             </div>
           ))}
         </div>

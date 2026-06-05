@@ -79,7 +79,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <Header />
         <main className="min-h-screen pt-18">
           {children}

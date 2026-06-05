@@ -11,9 +11,9 @@ export default function CTASection() {
   return (
     <section
       className="relative py-24 overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #070912 0%, #0e1428 50%, #070912 100%)' }}
     >
-      {/* ── Dark section backgrounds ── */}
+      <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
 
       {/* Grid texture */}
       <div

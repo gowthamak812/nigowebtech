@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ServicesFaqAccordion from '@/components/ServicesFaqAccordion';
 
 export const metadata: Metadata = {
     title: 'Web & Mobile App Development Services | Nigoweb Technologies',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 const services = [
     {
         id: 'web-development',
+        image: '/services/website-development.png',
         badge: 'Web Development',
         iconClass: 'icon-rose',
         iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
@@ -33,6 +35,7 @@ const services = [
     },
     {
         id: 'mobile-apps',
+        image: '/services/mobile-app-development.png',
         badge: 'Mobile Apps',
         iconClass: 'icon-blue',
         iconPath: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
@@ -56,6 +59,7 @@ const services = [
     },
     {
         id: 'seo',
+        image: '/services/seo.png',
         badge: 'SEO & Performance',
         iconClass: 'icon-orange',
         iconPath: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
@@ -80,6 +84,7 @@ const services = [
     },
     {
         id: 'redesign',
+        image: '/services/redesign.png',
         badge: 'Website Re-design',
         iconClass: 'icon-purple',
         iconPath: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15',
@@ -104,6 +109,7 @@ const services = [
     },
     {
         id: 'maintenance',
+        image: '/services/web-maintanence.png',
         badge: 'Support & Maintenance',
         iconClass: 'icon-green',
         iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
@@ -127,12 +133,6 @@ const services = [
     }
 ];
 
-const faqs = [
-    { q: 'How long does it take to deploy a site?', a: 'Standard business websites take 3–4 weeks. Complex dashboards or mobile systems typically need 6–12 weeks depending on scope.' },
-    { q: 'Do you offer content updates?', a: 'Yes — content changes, additions and updates are covered in our support plans. We also build user panels so you can edit pages yourself.' },
-    { q: 'Can you improve an old site?', a: 'Absolutely. We audit your existing system, redesign the UX, migrate data, and deploy on Next.js to dramatically improve load speed.' },
-    { q: 'Are sites SEO optimized?', a: 'Every site we deploy ships with structured data schema, automated sitemaps, optimised image alt tags, and Core Web Vitals as standard.' },
-];
 
 const divider = <div style={{ borderTop: '1px solid rgba(15,23,42,0.07)' }} />;
 
@@ -140,29 +140,34 @@ export default function ServicesPage() {
     return (
         <>
             {/* ── Hero ── */}
-            <section className="relative pt-32 pb-16 overflow-hidden" style={{ background: 'linear-gradient(160deg, #faf5ff 0%, #ffffff 60%)' }}>
+            <section className="relative pt-20 pb-12 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full blur-[120px]" style={{ background: 'rgba(168,85,247,0.08)' }} />
-                    <div className="absolute top-[20%] right-[5%] w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: 'rgba(99,102,241,0.06)' }} />
-                    <div className="absolute inset-0 grid-pattern opacity-40" />
+                    <img src="/banner-img.png" alt="" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.55)' }} />
                 </div>
                 <div className="container relative z-10 text-center">
                     <span className="badge badge-green mb-5">What We Do</span>
-                    <h1 className="text-brand-navy mb-6">
+                    <h1 className="mb-6" style={{ color: '#ffffff' }}>
                         Our Digital <span className="gradient-text">Engineering</span> Services
                     </h1>
                     <div className="section-divider section-divider-center" />
-                    <p className="text-lg text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+                    <p className="text-sm font-medium leading-relaxed max-w-xl mx-auto mb-6" style={{ color: 'rgba(255,255,255,0.75)' }}>
                         We design and build high-performance web systems, custom mobile apps,
                         and results-oriented digital pipelines to help your brand grow.
                     </p>
-                    <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto items-stretch">
+                    <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-3 max-w-xs sm:max-w-none mx-auto items-stretch mt-6">
                         {services.map(s => (
                             <a
                                 key={s.id}
                                 href={`#${s.id}`}
-                                className="flex items-center justify-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border text-center leading-tight transition-all duration-200 hover:-translate-y-0.5"
-                                style={{ borderColor: `${s.accent}40`, color: s.accent, background: `${s.accent}0d` }}
+                                className="flex items-center justify-center px-4 py-2 rounded-full text-[11px] sm:text-xs font-semibold leading-tight transition-all duration-300 hover:-translate-y-1"
+                                style={{
+                                    background: 'rgba(255,255,255,0.10)',
+                                    border: `1.5px solid ${s.accent}`,
+                                    color: '#ffffff',
+                                    backdropFilter: 'blur(12px)',
+                                    boxShadow: `0 4px 16px ${s.accent}30`,
+                                }}
                             >
                                 {s.badge}
                             </a>
@@ -171,42 +176,6 @@ export default function ServicesPage() {
                 </div>
             </section>
 
-            {divider}
-
-            {/* ── Services overview (navy) ── */}
-            <section className="navy-section relative py-16 overflow-hidden">
-                <div className="absolute inset-0 grid-pattern-dark opacity-20 pointer-events-none" />
-                <div className="container relative z-10">
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                        {services.map((s) => (
-                            <a
-                                key={s.id}
-                                href={`#${s.id}`}
-                                className="group flex flex-col gap-4 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
-                                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-                            >
-                                <div className={`${s.iconClass} w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0`}>
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d={s.iconPath} />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p className="text-white font-bold text-sm mb-1">{s.badge}</p>
-                                    <p className="text-blue-200 text-xs font-medium opacity-70 leading-relaxed">{s.desc.slice(0, 72)}…</p>
-                                </div>
-                                <span className="text-xs font-semibold flex items-center gap-1 mt-auto" style={{ color: s.accent }}>
-                                    Learn more
-                                    <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </span>
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {divider}
 
             {/* ── Individual service sections ── */}
             {services.map((s, idx) => (
@@ -277,9 +246,14 @@ export default function ServicesPage() {
                                 </div>
                             </div>
 
-                            {/* Right: feature card */}
-                            <div className="rounded-3xl p-8 flex flex-col justify-center"
-                                style={{ background: '#ffffff', border: `1.5px solid ${s.accent}20`, boxShadow: `0 8px 40px ${s.accent}10` }}>
+                            {/* Right: image + feature card merged */}
+                            <div className="flex flex-col gap-5">
+                            <div className="rounded-3xl overflow-hidden flex flex-col"
+                                style={{ background: '#ffffff', border: `1.5px solid ${s.accent}20`, boxShadow: `0 8px 40px ${s.accent}15` }}>
+                                <div className="overflow-hidden">
+                                <img src={s.image} alt={s.badge} className="w-full h-72 object-cover transition-transform duration-700 hover:scale-105" />
+                                </div>
+                            <div className="p-8 flex flex-col justify-center">
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className="w-1 h-6 rounded-full" style={{ background: s.ctaGradient }} />
                                     <h3 className="text-base font-black text-brand-navy">{s.cardTitle}</h3>
@@ -298,6 +272,8 @@ export default function ServicesPage() {
                                     ))}
                                 </div>
                             </div>
+                            </div>
+                            </div>
                         </div>
                     </div>
 
@@ -307,45 +283,33 @@ export default function ServicesPage() {
             ))}
 
             {/* ── FAQ ── */}
-            <section className="navy-section relative py-20">
-                <div className="absolute inset-0 grid-pattern-dark opacity-20 pointer-events-none" />
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" style={{ background: 'rgba(99,102,241,0.12)' }} />
+            <section className="relative py-20 overflow-hidden" style={{ background: 'linear-gradient(160deg, #f0f4ff 0%, #f8f7ff 50%, #eff6ff 100%)' }}>
+                <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(99,102,241,0.06) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" style={{ background: 'rgba(99,102,241,0.07)' }} />
                 <div className="container relative z-10">
                     <div className="text-center mb-14">
                         <span className="badge badge-green mb-4">Answers</span>
-                        <h2 className="text-white mb-4">Frequently Asked <span className="gradient-text-secondary">Questions</span></h2>
+                        <h2 className="mb-4" style={{ color: '#0f172a' }}>Frequently Asked <span className="gradient-text-secondary">Questions</span></h2>
                         <div className="section-divider section-divider-center" />
                     </div>
-                    <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                        {faqs.map((faq, i) => (
-                            <div key={i} className="p-6 rounded-2xl"
-                                style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                                <div className="flex items-start gap-3 mb-3">
-                                    <span className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0 text-white"
-                                        style={{ background: 'linear-gradient(135deg, #6366f1, #a855f7)' }}>
-                                        {i + 1}
-                                    </span>
-                                    <h3 className="font-bold text-white text-sm leading-snug">{faq.q}</h3>
-                                </div>
-                                <p className="text-blue-200 text-sm leading-relaxed opacity-80 pl-9">{faq.a}</p>
-                            </div>
-                        ))}
-                    </div>
+                    <ServicesFaqAccordion />
                 </div>
             </section>
 
             {divider}
 
             {/* ── CTA ── */}
-            <section className="relative py-24" style={{ background: 'linear-gradient(160deg, #f5f7ff 0%, #ffffff 100%)' }}>
-                <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
+            <section className="relative py-24 overflow-hidden">
+                <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+                <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
+                <div className="absolute inset-0 grid-pattern-dark opacity-30 pointer-events-none" />
                 <div className="container relative z-10 text-center">
-                    <span className="badge mb-5">Ready to Start?</span>
-                    <h2 className="text-brand-navy font-black mb-4">
+                    <span className="badge mb-5" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>Ready to Start?</span>
+                    <h2 className="font-black mb-4" style={{ color: '#ffffff' }}>
                         Let's Build Something <span className="gradient-text">Exceptional</span>
                     </h2>
                     <div className="section-divider section-divider-center" />
-                    <p className="text-gray-500 font-medium text-lg max-w-xl mx-auto mb-10">
+                    <p className="font-medium text-lg max-w-xl mx-auto mb-10" style={{ color: 'rgba(255,255,255,0.65)' }}>
                         Book a free 30-minute consultation and get a tailored plan for your project — no commitment required.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -361,7 +325,8 @@ export default function ServicesPage() {
                         </Link>
                         <Link
                             href="/pricing"
-                            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold border-2 border-gray-200 text-gray-600 hover:border-indigo-400 hover:text-indigo-600 transition-all duration-200"
+                            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-0.5"
+                            style={{ background: 'rgba(255,255,255,0.12)', color: '#ffffff', border: '1.5px solid rgba(255,255,255,0.3)' }}
                         >
                             View Pricing
                         </Link>
