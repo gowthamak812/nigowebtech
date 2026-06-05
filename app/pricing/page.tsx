@@ -261,7 +261,7 @@ export default function PricingPage() {
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="relative pt-20 pb-12 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <img src="/banner-img.png" alt="" className="w-full h-full object-cover" />
+          <img src="/banner-img.png" alt="" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="sync" />
           <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.55)' }} />
         </div>
 
@@ -490,7 +490,7 @@ export default function PricingPage() {
 
       {/* ── Support Plans ─────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden">
-        <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+        <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
         <div className="absolute inset-0 grid-pattern-dark opacity-30 pointer-events-none" />
         <div className="absolute top-0 left-1/2 w-[700px] h-[400px] rounded-full blur-[150px] pointer-events-none -translate-x-1/2 -translate-y-1/2" style={{ background: 'rgba(99,102,241,0.12)' }} />
@@ -651,7 +651,7 @@ export default function PricingPage() {
 
       {/* ── CTA ───────────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden">
-        <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+        <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
         <div className="absolute inset-0 grid-pattern-dark opacity-30 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" style={{ background: 'rgba(99,102,241,0.14)', transform: 'translate(20%,-20%)' }} />

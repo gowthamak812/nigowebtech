@@ -49,7 +49,7 @@ export default function Footer() {
                     {/* Logo */}
                     <div className="col-span-2 sm:col-span-1 flex flex-col justify-start">
                         <Link href="/" className="inline-block hover:opacity-75 transition-opacity mb-4">
-                            <img src="/brand-logo.png" alt="Nigoweb Technologies" className="h-10 w-auto" />
+                            <img src="/brand-logo.png" alt="Nigoweb Technologies" className="h-10 w-auto" loading="lazy" decoding="async" />
                         </Link>
                         <p className="text-sm leading-6 font-medium max-w-[180px]" style={{ color: '#6b7280' }}>
                             Turning ideas into digital experiences.

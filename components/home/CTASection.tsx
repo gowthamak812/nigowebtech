@@ -12,7 +12,7 @@ export default function CTASection() {
     <section
       className="relative py-24 overflow-hidden"
     >
-      <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+      <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" />
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
 
       {/* Grid texture */}

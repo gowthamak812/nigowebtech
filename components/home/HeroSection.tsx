@@ -159,7 +159,7 @@ export default function HeroSection() {
                 <div className="flex -space-x-2">
                   {[21, 22, 23, 24].map((id, i) => (
                     <img key={i} src={`https://i.pravatar.cc/48?u=${id}`} alt="Client"
-                      className="w-7 h-7 sm:w-9 sm:h-9 rounded-full object-cover"
+                      className="w-7 h-7 sm:w-9 sm:h-9 rounded-full object-cover" loading="lazy" decoding="async"
                       style={{ border: '2px solid rgba(255,255,255,0.22)', zIndex: 4 - i }} />
                   ))}
                 </div>

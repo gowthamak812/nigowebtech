@@ -37,7 +37,7 @@ export default function ServicesFaqAccordion() {
                 </span>
                 <span style={{ fontSize: '0.93rem', fontWeight: 700, color: '#111827', lineHeight: 1.4 }}>{faq.q}</span>
               </div>
-              <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: isOpen ? 'linear-gradient(135deg,#6366f1,#a855f7)' : 'rgba(99,102,241,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '1rem', fontWeight: 300, color: isOpen ? '#ffffff' : '#6366f1', transform: isOpen ? 'rotate(45deg)' : 'none', transition: 'all 300ms', flexShrink: 0 }}>
+              <span style={{ width: '22px', height: '22px', borderRadius: '50%', background: isOpen ? 'linear-gradient(135deg,#6366f1,#a855f7)' : 'rgba(99,102,241,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '1rem', fontWeight: 300, color: isOpen ? '#ffffff' : '#6366f1', transform: isOpen ? 'rotate(45deg)' : 'none', transition: 'all 300ms' }}>
                 +
               </span>
             </button>

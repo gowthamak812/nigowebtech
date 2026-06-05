@@ -142,7 +142,7 @@ export default function ServicesPage() {
             {/* ── Hero ── */}
             <section className="relative pt-20 pb-12 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <img src="/banner-img.png" alt="" className="w-full h-full object-cover" />
+                    <img src="/banner-img.png" alt="" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="sync" />
                     <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.55)' }} />
                 </div>
                 <div className="container relative z-10 text-center">
@@ -251,7 +251,7 @@ export default function ServicesPage() {
                             <div className="rounded-3xl overflow-hidden flex flex-col"
                                 style={{ background: '#ffffff', border: `1.5px solid ${s.accent}20`, boxShadow: `0 8px 40px ${s.accent}15` }}>
                                 <div className="overflow-hidden">
-                                <img src={s.image} alt={s.badge} className="w-full h-72 object-cover transition-transform duration-700 hover:scale-105" />
+                                <img src={s.image} alt={s.badge} className="w-full h-72 object-cover transition-transform duration-700 hover:scale-105" loading="lazy" decoding="async" />
                                 </div>
                             <div className="p-8 flex flex-col justify-center">
                                 <div className="flex items-center gap-3 mb-2">
@@ -300,7 +300,7 @@ export default function ServicesPage() {
 
             {/* ── CTA ── */}
             <section className="relative py-24 overflow-hidden">
-                <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+                <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" />
                 <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
                 <div className="absolute inset-0 grid-pattern-dark opacity-30 pointer-events-none" />
                 <div className="container relative z-10 text-center">

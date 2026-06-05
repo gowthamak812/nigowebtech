@@ -87,7 +87,7 @@ export default function PortfolioPage() {
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="relative pt-20 pb-12 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <img src="/banner-img.png" alt="" className="w-full h-full object-cover" />
+          <img src="/banner-img.png" alt="" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="sync" />
           <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.55)' }} />
         </div>
 
@@ -131,7 +131,7 @@ export default function PortfolioPage() {
 
       {/* ── Projects ──────────────────────────────────────── */}
       <section className="relative py-20 overflow-hidden">
-        <img src="/our-projects-bg.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+        <img src="/our-projects-bg.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" />
 
         <div className="container relative z-10">
           <div className="text-center mb-12">
@@ -366,7 +366,7 @@ export default function PortfolioPage() {
 
       {/* ── CTA — full-width dark ─────────────────────────── */}
       <section className="relative py-24 overflow-hidden">
-        <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+        <img src="/bg-img.png" alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.75)' }} />
         <div className="absolute inset-0 grid-pattern-dark opacity-30 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none" style={{ background: 'rgba(99,102,241,0.14)', transform: 'translate(20%,-20%)' }} />

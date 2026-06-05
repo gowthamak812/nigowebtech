@@ -232,7 +232,7 @@ export default function ServicesSection() {
               <div className="relative overflow-hidden" style={{ height: '220px', flexShrink: 0 }}>
                 <img
                   src={s.image} alt={s.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover" loading="lazy" decoding="async"
                 />
                 {/* Stat badge */}
                 <div className="absolute top-4 right-4 px-3 py-1.5 rounded-xl text-right"
@@ -292,7 +292,7 @@ export default function ServicesSection() {
               <div className="relative overflow-hidden" style={{ height: '140px', flexShrink: 0 }}>
                 <img
                   src={s.image} alt={s.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover" loading="lazy" decoding="async"
                 />
                 {/* Color bar */}
                 <div className="absolute bottom-0 left-0 right-0 h-1" style={{ background: `linear-gradient(to right, ${s.color}, ${s.color}50)` }} />
