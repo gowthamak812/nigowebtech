@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
-import HeroSection         from '@/components/home/HeroSection';
-import TrustSection        from '@/components/home/TrustSection';
-import ServicesSection     from '@/components/home/ServicesSection';
-import WhyUsSection        from '@/components/home/WhyUsSection';
-import AISection           from '@/components/home/AISection';
-import TestimonialsSection from '@/components/home/TestimonialsSection';
-import CTASection          from '@/components/home/CTASection';
+import dynamic from 'next/dynamic';
+import HeroSection  from '@/components/home/HeroSection';
+import TrustSection from '@/components/home/TrustSection';
+
+const ServicesSection     = dynamic(() => import('@/components/home/ServicesSection'));
+const WhyUsSection        = dynamic(() => import('@/components/home/WhyUsSection'));
+const AISection           = dynamic(() => import('@/components/home/AISection'));
+const TestimonialsSection = dynamic(() => import('@/components/home/TestimonialsSection'));
+const CTASection          = dynamic(() => import('@/components/home/CTASection'));
 
 export const metadata: Metadata = {
   title: 'Nigoweb Technologies | Premium Web Development & AI Solutions',

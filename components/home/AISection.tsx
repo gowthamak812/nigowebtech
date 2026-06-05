@@ -1,3 +1,7 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
 const features = [
   {
     title: 'AI Chatbot',
@@ -52,20 +56,38 @@ const features = [
 ];
 
 export default function AISection() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+
+  useEffect(() => {
+    const update = () => {
+      const ipp = window.innerWidth < 1024 ? 1 : 3;
+      setItemsPerPage(ipp);
+      setCurrentPage(0);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  const pages: (typeof features)[] = [];
+  for (let i = 0; i < features.length; i += itemsPerPage) {
+    pages.push(features.slice(i, i + itemsPerPage));
+  }
+  const totalPages = pages.length;
+
+  const prev = () => setCurrentPage(p => Math.max(0, p - 1));
+  const next = () => setCurrentPage(p => Math.min(totalPages - 1, p + 1));
+
   return (
     <section
       className="relative py-24 overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #07091a 0%, #0d1230 50%, #07091a 100%)' }}
     >
-      {/* Light-to-dark transition from WhyUsSection above */}
       <div className="absolute top-0 left-0 right-0 h-20 pointer-events-none z-10"
         style={{ background: 'linear-gradient(180deg, rgba(247,245,255,0.08) 0%, transparent 100%)' }}
       />
-
-      {/* Grid pattern */}
       <div className="absolute inset-0 grid-pattern-dark opacity-25 pointer-events-none" />
-
-      {/* Glow orbs */}
       <div
         className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(168,85,247,0.18) 0%, transparent 60%)', transform: 'translate(35%, -35%)' }}
@@ -73,10 +95,6 @@ export default function AISection() {
       <div
         className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 60%)', transform: 'translate(-35%, 35%)' }}
-      />
-      <div
-        className="absolute top-1/2 left-1/2 w-[400px] h-[400px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(96,165,250,0.06) 0%, transparent 70%)', transform: 'translate(-50%,-50%)' }}
       />
 
       <div className="container relative z-10">
@@ -88,19 +106,14 @@ export default function AISection() {
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
             AI-Powered Solutions
           </span>
-          <h2
-            className="mb-4"
-            style={{ color: '#ffffff' }}
-          >
+          <h2 className="mb-4" style={{ color: '#ffffff' }}>
             Smart{' '}
-            <span
-              style={{
-                background: 'linear-gradient(135deg, #c084fc 0%, #818cf8 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
+            <span style={{
+              background: 'linear-gradient(135deg, #c084fc 0%, #818cf8 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
               AI Integration
             </span>
           </h2>
@@ -113,46 +126,99 @@ export default function AISection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f, i) => (
+        {/* Slider */}
+        <div className="relative">
+          {/* Prev arrow */}
+          <button
+            onClick={prev}
+            disabled={currentPage === 0}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 lg:-translate-x-7 z-20 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105 opacity-50 hover:opacity-100 disabled:opacity-20 disabled:cursor-not-allowed"
+            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(168,85,247,0.3)' }}
+            aria-label="Previous"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" style={{ color: '#c084fc' }}>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeOpacity="0.15" strokeWidth="1.5" fill="none" />
+              <path stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" d="M13.5 8.5L10 12l3.5 3.5" />
+            </svg>
+          </button>
+
+          <div style={{ overflowX: 'clip', overflowY: 'visible' }}>
             <div
-              key={i}
-              className={`group relative rounded-3xl p-7 transition-all duration-400 hover:-translate-y-2 cursor-default overflow-hidden ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
-              style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                backdropFilter: 'blur(12px)',
-              }}
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentPage * 100}%)` }}
             >
-              {/* Hover glow border */}
-              <div
-                className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{ border: `1px solid ${f.color}45`, boxShadow: `0 0 50px ${f.color}12` }}
-              />
-
-              {/* Top shimmer line on hover */}
-              <div
-                className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-t-3xl"
-                style={{ background: `linear-gradient(to right, transparent, ${f.color}80, transparent)` }}
-              />
-
-              {/* Icon */}
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform group-hover:scale-110 relative z-10"
-                style={{ background: `${f.color}18`, border: `1px solid ${f.color}30`, color: f.color }}
-              >
-                {f.icon}
-              </div>
-
-              <h3 className="font-bold mb-3 text-lg relative z-10" style={{ color: '#f1f5f9' }}>{f.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed relative z-10">{f.desc}</p>
-
-              {/* Bottom accent bar */}
-              <div
-                className="mt-6 h-0.5 w-10 rounded-full transition-all duration-400 group-hover:w-20 relative z-10"
-                style={{ background: `linear-gradient(to right, ${f.color}, transparent)` }}
-              />
+              {pages.map((page, pi) => (
+                <div key={pi} className="w-full flex-none flex gap-5">
+                  {page.map((f, i) => (
+                    <div key={i} style={{ flex: '1 1 0', minWidth: 0 }}>
+                      <div
+                        className="group relative rounded-3xl p-7 h-full transition-all duration-400 hover:-translate-y-2 cursor-default overflow-hidden"
+                        style={{
+                          background: 'rgba(255,255,255,0.04)',
+                          border: '1px solid rgba(255,255,255,0.07)',
+                          backdropFilter: 'blur(12px)',
+                        }}
+                      >
+                        {/* Hover glow border */}
+                        <div
+                          className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                          style={{ border: `1px solid ${f.color}45`, boxShadow: `0 0 50px ${f.color}12` }}
+                        />
+                        {/* Top shimmer */}
+                        <div
+                          className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-t-3xl"
+                          style={{ background: `linear-gradient(to right, transparent, ${f.color}80, transparent)` }}
+                        />
+                        {/* Icon */}
+                        <div
+                          className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform group-hover:scale-110 relative z-10"
+                          style={{ background: `${f.color}18`, border: `1px solid ${f.color}30`, color: f.color }}
+                        >
+                          {f.icon}
+                        </div>
+                        <h3 className="font-bold mb-3 text-lg relative z-10" style={{ color: '#f1f5f9' }}>{f.title}</h3>
+                        <p className="text-gray-400 text-sm leading-relaxed relative z-10">{f.desc}</p>
+                        {/* Bottom accent bar */}
+                        <div
+                          className="mt-6 h-0.5 w-10 rounded-full transition-all duration-400 group-hover:w-20 relative z-10"
+                          style={{ background: `linear-gradient(to right, ${f.color}, transparent)` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
+          </div>
+
+          {/* Next arrow */}
+          <button
+            onClick={next}
+            disabled={currentPage === totalPages - 1}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 lg:translate-x-7 z-20 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-105 opacity-50 hover:opacity-100 disabled:opacity-20 disabled:cursor-not-allowed"
+            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(168,85,247,0.3)' }}
+            aria-label="Next"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" style={{ color: '#c084fc' }}>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeOpacity="0.15" strokeWidth="1.5" fill="none" />
+              <path stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" d="M10.5 8.5L14 12l-3.5 3.5" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center items-center gap-2 mt-8">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i)}
+              className="h-2.5 rounded-full transition-all duration-300"
+              style={{
+                width: i === currentPage ? '24px' : '10px',
+                background: i === currentPage ? '#a855f7' : 'rgba(255,255,255,0.2)',
+              }}
+              aria-label={`Go to page ${i + 1}`}
+            />
           ))}
         </div>
 
